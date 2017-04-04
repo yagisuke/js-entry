@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch2-07 分割代入.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>分割代入</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>カッチリパターン</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let data = [56, 40, 26, 82, 19, 17, 73, 99];<br />
+        let [x0, x1, x2, x3, x4, x5, x6, x7] = data;
+      </div>
+    `);
+    let data1 = [56, 40, 26, 82, 19, 17, 73, 99];
+    let [x0, x1, x2, x3, x4, x5, x6, x7] = data1;
+    document.write(`x0 -> ${x0} <br />`);
+    document.write(`x1 -> ${x1} <br />`);
+    document.write(`x2 -> ${x2} <br />`);
+    document.write(`x3 -> ${x3} <br />`);
+    document.write(`x4 -> ${x4} <br />`);
+    document.write(`x5 -> ${x5} <br />`);
+    document.write(`x6 -> ${x6} <br />`);
+    document.write(`x7 -> ${x7} <br />`);
+    document.write(`
+      <hr />
+      <h2>以下省略パターン</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let data2 = [56, 40, 26, 82, 19, 17, 73, 99];<br />
+        let [y0, y1, y2, ...other] = data2;
+      </div>
+    `);
+    let data2 = [56, 40, 26, 82, 19, 17, 73, 99];
+    let [y0, y1, y2, ...other] = data2;
+    document.write(`y0 -> ${y0} <br />`);
+    document.write(`y1 -> ${y1} <br />`);
+    document.write(`y2 -> ${y2} <br />`);
+    document.write(`other -> ${other} <br />`);
+  </script>
+</body>
+</html>
