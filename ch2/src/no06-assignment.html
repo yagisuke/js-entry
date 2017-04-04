@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch2-06 基本型と参照型の代入.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>基本型と参照型の代入</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>基本型の代入</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        <code>
+          var x = 1;<br />
+          var y = x;<br />
+          x = 2;<br />
+          document.write(y);
+        </code>
+      </div>
+    `);
+    var x = 1;
+    var y = x;
+    x = 2;
+    document.write(y);
+
+    document.write(`
+      <hr />
+      <h2>参照型の代入</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        <code>
+          var array1 = ["Java", "PHP", "Ruby", "Python", "Go"];<br />
+          var array2 = array1;<br />
+          array1[1] = "NodeJs";<br />
+          document.write(array2);
+        </code>
+      </div>
+    `);
+    var array1 = ["Java", "PHP", "Ruby", "Python", "Go"];
+    var array2 = array1;
+    array1[1] = "NodeJs";
+    document.write(array2);
+  </script>
+</body>
+</html>
