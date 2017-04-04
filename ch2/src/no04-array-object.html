@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch2-04 配列/オブジェクト・連想配列.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>配列/オブジェクト・連想配列</h1>
+  <script type="text/javascript">
+    /********************************************
+     * 配列
+     ********************************************/
+    document.write('<h2>配列</h2><div style="padding: 10px; background-color: #eee; color: green;"><code>let arrays = ["x", "y", "z"];</code></div>');
+
+    let arrays = ['x', 'y', 'z'];
+    document.write('<p>array[index]: ' + arrays[0] + '</p><hr />');
+
+
+    /********************************************
+     * オブジェクト(連想配列)
+     ********************************************/
+    document.write('<h2>オブジェクト(連想配列)</h2><div style="padding: 10px; background-color: #eee; color: green;"><code>let object = {x: 1, y: 2, z: 3};</code></div>');
+
+    let object = {x: 1, y: 2, z: 3};
+    document.write('<p>object[\'key\']: ' + object['y'] + '</p>');
+    document.write('<p>object.key: ' + object.z + '</p><hr />');
+
+
+    /********************************************
+     * 配列を使ってオブジェクトを取り出してみる（なんとなく）
+     ********************************************/
+    document.write('<h2>配列を使ってオブジェクトを取り出してみる（なんとなく）</h2><div style="padding: 10px; background-color: #eee; color: green;">for(i in arrays) object[arrays[i]];<code></code></div>');
+
+    for (i in arrays) {
+      document.write('<p>object[arrays[index]]: ' + object[arrays[i]] + '</p>');
+    }
+  </script>
+</body>
+</html>
