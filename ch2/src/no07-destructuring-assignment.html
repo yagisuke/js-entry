@@ -11,7 +11,7 @@
       <h2>カッチリパターン</h2>
       <div style="padding: 10px; background-color: #eee; color: green;">
         let data = [56, 40, 26, 82, 19, 17, 73, 99];<br />
-        let [x0, x1, x2, x3, x4, x5, x6, x7] = data;
+        let [x0, x1, x2, x3, x4, x5, x6, x7] = data;<br />
       </div>
     `);
     let data1 = [56, 40, 26, 82, 19, 17, 73, 99];
@@ -24,12 +24,13 @@
     document.write(`x5 -> ${x5} <br />`);
     document.write(`x6 -> ${x6} <br />`);
     document.write(`x7 -> ${x7} <br />`);
+
     document.write(`
       <hr />
       <h2>以下省略パターン</h2>
       <div style="padding: 10px; background-color: #eee; color: green;">
         let data2 = [56, 40, 26, 82, 19, 17, 73, 99];<br />
-        let [y0, y1, y2, ...other] = data2;
+        let [y0, y1, y2, ...other] = data2;<br />
       </div>
     `);
     let data2 = [56, 40, 26, 82, 19, 17, 73, 99];
@@ -38,6 +39,76 @@
     document.write(`y1 -> ${y1} <br />`);
     document.write(`y2 -> ${y2} <br />`);
     document.write(`other -> ${other} <br />`);
+
+    document.write(`
+      <hr />
+      <h2>変数の入れ替え</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let x = 29;<br />
+        let y = 92;<br />
+        [y, x] = [x, y];<br />
+      </div>
+    `);
+    let x = 29;
+    let y = 92;
+    [y, x] = [x, y];
+    document.write(`x -> ${x} <br />`);
+    document.write(`y -> ${y} <br />`);
+
+    document.write(`
+      <hr />
+      <h2>オブジェクトを分割代入</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let book = {title: 'Javaポケットリファレンス', publish: '技術評論社', price: 2680};<br />
+        let {price, title, memo = '初期値'} = book;<br />
+      </div>
+    `);
+    let book1 = {
+      title: 'Javaポケットリファレンス',
+      publish: '技術評論社',
+      price: 2680
+    };
+    var {price, title, memo = '初期値'} = book1;
+    document.write(`title -> ${title} <br />`);
+    document.write(`price -> ${price} <br />`);
+    document.write(`memo -> ${memo} <br />`);
+
+    document.write(`
+      <hr />
+      <h2>入れ子となったオブジェクトを分割代入</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let book2 = {<br />
+          &nbsp;&nbsp;&nbsp;title: 'Javaポケットリファレンス',<br />
+          &nbsp;&nbsp;&nbsp;publish: '技術評論社',<br />
+          &nbsp;&nbsp;&nbsp;price: 2680,<br />
+          &nbsp;&nbsp;&nbsp;otherInfo: {keyword: 'Java SE 8', logo: 'logo.jpg'}<br />
+        };<br />
+        var {titl, otherInfo, otherInfo: {keyword}} = book2;<br />
+      </div>
+    `);
+    let book2 = {
+      title: 'Javaポケットリファレンス',
+      publish: '技術評論社',
+      price: 2680,
+      otherInfo: {keyword: 'Java SE 8', logo: 'logo.jpg'}
+    };
+    var {titl, otherInfo, otherInfo: {keyword}} = book2;
+    document.write(`title -> ${title} <br />`);
+    document.write(`otherInfo.logo -> ${otherInfo.logo} <br />`);
+    document.write(`keyword -> ${keyword} <br />`);
+
+    document.write(`
+      <hr />
+      <h2>変数の別名を指定した分割代入</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let book3 = {title: 'Javaポケットリファレンス', publish: '技術評論社'};<br />
+        var {title: name, publish: company} = book3;<br />
+      </div>
+    `);
+    let book3 = {title: 'Javaポケットリファレンス', publish: '技術評論社'};
+    var {title: name, publish: company} = book3;
+    document.write(`name -> ${name} <br />`);
+    document.write(`company -> ${company} <br />`);
   </script>
 </body>
 </html>
