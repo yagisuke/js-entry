@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch2-10 loop.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>loop</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>while</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var x = 0;<br />
+        while (x < 10) {<br />
+          &nbsp;&nbsp;&nbsp;document.write('xの値 -> ', x);<br />
+          &nbsp;&nbsp;&nbsp;x++;<br />
+        }<br />
+      </div>
+    `);
+    var x = 0;
+    while (x < 10) {
+      document.write('xの値 -> ', x, '<br />');
+      x++;
+    }
+
+    document.write(`
+      <hr />
+      <h2>do...while</h2>
+      <p>真偽にかかわらず1回はループが処理される</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var x = 0;<br />
+        do {<br />
+        &nbsp;&nbsp;&nbsp;document.write('xの値 -> ', x);<br />
+        &nbsp;&nbsp;&nbsp;x++;<br />
+        } while (x < 10);<br />
+      </div>
+    `);
+    var x = 0;
+    do {
+      document.write('xの値 -> ', x, '<br />');
+      x++;
+    } while (x < 10);
+
+
+    document.write(`
+      <hr />
+      <h2>for</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        for (var x = 0; 10 < x; x++) {<br>
+        &nbsp;&nbsp;&nbsp;document.write('xの値 -> ', x);<br>
+        }<br>
+      </div>
+    `);
+    for (var x = 0; x < 10; x++) {
+      document.write('xの値 -> ', x, '<br />');
+    }
+
+    document.write(`
+      <hr />
+      <h2>for(カンマ演算)</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        for (var x = 0, y = 0; x + y < 10; x++, y++) {<br>
+        &nbsp;&nbsp;&nbsp;document.write('xの値 -> ', x, ' yの値 -> ', y);<br>
+        }<br>
+      </div>
+    `);
+    for (var x = 0, y = 0; x + y < 10; x++, y++) {
+      document.write('xの値 -> ', x, ' yの値 -> ', y, '<br />');
+    }
+
+    document.write(`
+      <hr />
+      <h2>for...in</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      var data = {apple: 150, banana: 100, tomatto: 120};<br>
+      for (key in data) {<br>
+      &nbsp;&nbsp;&nbsp;document.write('key -> ', key, ' data -> ', data[key]);<br>
+      }<br>
+      </div>
+    `);
+    var data = {apple: 150, banana: 100, tomatto: 120};
+    for (var key in data) {
+      document.write('key -> ', key, ' data -> ', data[key], '<br />');
+    }
+
+    document.write(`
+      <hr />
+      <h2>for...of</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      var data = ['apple', 'banana', 'tomatto'];<br>
+      for (var val of data) {<br>
+      &nbsp;&nbsp;&nbsp;document.write('val -> ', val);<br>
+      }<br>
+      </div>
+    `);
+    var data = ['apple', 'banana', 'tomatto'];
+    for (var val of data) {
+      document.write('val -> ', val, '<br />');
+    }
+  </script>
+</body>
+</html>
