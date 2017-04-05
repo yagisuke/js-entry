@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch2-08 短絡演算子.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>短絡演算子</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>&& で true</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var x1 = 1;<br />
+        if (x1 === 1) { document.write('x1 ->', x1); } // ①<br />
+        x1 === 1 && document.write('x1 ->', x1); // ②<br />
+      </div>
+    `);
+    var x1 = 1;
+    if (x1 === 1) {document.write(`x1 -> ${x1}  // ①<br />`);}
+    x1 === 1 && document.write(`x1 -> ${x1}  // ②<br />`);
+
+    document.write(`
+      <hr />
+      <h2>&& で false</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var y1 = 1;<br />
+        if (y1 !== 1) { document.write('y1 -> ${y1}'); } // ①<br />
+        y1 !== 1 && document.write('y1 -> ${y1}'); // ②<br />
+      </div>
+    `);
+    var y1 = 1;
+    if (y1 !== 1) {document.write(`y1 -> ${y1}  // ①<br />`);}
+    y1 !== 1 && document.write(`y1 -> ${y1}  // ②<br />`);
+    document.write(`実行されない。`);
+
+    document.write(`
+      <hr />
+      <h2>|| で true</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var x2 = 1;<br />
+        x2 === 1 || document.write('x2 ->', x2);<br />
+      </div>
+    `);
+    var x2 = 1;
+    x2 === 1 || document.write(`x2 -> ${x2} <br />`);
+
+    document.write(`
+      <hr />
+      <h2>|| で false</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var y2 = 1;<br />
+        y2 !== 1 || document.write('y2 -> ${y2}');<br />
+      </div>
+    `);
+    var y2 = 1;
+    y2 !== 1 || document.write(`y2 -> ${y2} <br />`);
+  </script>
+</body>
+</html>
