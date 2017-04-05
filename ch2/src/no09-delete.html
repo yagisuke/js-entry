@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch2-09 delete演算子.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>delete演算子</h1>
+  <script type="text/javascript">
+
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var ary = ['JavaScript', 'Ajax', 'Node.js'];<br />
+        document.write(delete ary[1]);<br />
+        document.write(ary);<br />
+      </div>
+    `);
+    var ary = ['JavaScript', 'Ajax', 'Node.js'];
+    document.write('delete ary[1] -> ', delete ary[1], '<br />');
+    document.write('ary -> ',ary, '<hr />');
+
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var obj = {x:1, y:2};<br />
+        document.write(delete obj.x);<br />
+        document.write(obj);<br />
+      </div>
+    `);
+    var obj = {x:1, y:2};
+    document.write('delete obj.x -> ', delete obj.x, '<br />');
+    document.write('obj -> ', obj, '<hr />');
+
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var data1 = 1;<br />
+        document.write(delete data1);<br />
+        document.write(data1);<br />
+      </div>
+    `);
+    var data1 = 1;
+    document.write('delete data1 -> ', delete data1, '<br />');
+    document.write('data1 -> ', data1, '<hr />');
+
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        data2 = 10;<br />
+        document.write(delete data2);<br />
+        document.write(data2); // これはエラーになる<br />
+      </div>
+    `);
+    data2 = 10;
+    document.write('delete data2 -> ', delete data2, '<br />');
+  </script>
+</body>
+</html>
