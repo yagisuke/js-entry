@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-4 convert.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>convert</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>number👉string</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let num = 123;<br />
+        document.write(typeof num);<br />
+        document.write(num = num + '');<br />
+        document.write(typeof num);<br />
+      </div>
+    `);
+    let num = 123;
+    document.write(typeof num, '<br />');
+    document.write(num = num + '', '<br />');
+    document.write(typeof num, '<br />');
+
+    document.write(`
+      <h2>string👉number</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let str = '123';<br />
+        document.write(typeof str);<br />
+        document.write(str = str - 0);<br />
+        document.write(typeof str);<br />
+      </div>
+    `);
+    let str = '123';
+    document.write(typeof str, '<br />');
+    document.write(str = str - 0, '<br />');
+    document.write(typeof str, '<br />');
+  </script>
+</body>
+</html>
