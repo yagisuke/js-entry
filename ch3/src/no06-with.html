@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-6 with.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>with命令</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>with命令(ex: Math</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        with(Math) {
+          &nbsp;&nbsp;&nbsp;document.write('Math.abs(-100) -> ', abs(-100));<br />
+          &nbsp;&nbsp;&nbsp;document.write('Math.abs(-100) -> ', clz32(1));<br />
+          &nbsp;&nbsp;&nbsp;document.write('Math.max(20, 30, 40) -> ', max(20, 30, 40));<br />
+          &nbsp;&nbsp;&nbsp;document.write('以下省略');<br />
+        }
+      </div>
+    `);
+    with(Math) {
+      document.write('Math.abs(-100) -> ', abs(-100), '<br />');
+      document.write('Math.abs(-100) -> ', clz32(1), '<br />');
+      document.write('Math.max(20, 30, 40) -> ', max(20, 30, 40), '<br />');
+      document.write('以下省略');
+    }
+  </script>
+</body>
+</html>
