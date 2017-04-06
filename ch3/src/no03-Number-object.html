@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-3 Number object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Number object</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>Infinity</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var num1 = 9999999999;<br />
+        var num2 = 9999999999;<br />
+        document.write(num1 ** num2); // jsで表現可能な数値の範囲を超えた値<br />
+      </div>
+    `);
+    var num1 = 9999999999;
+    var num2 = 9999999999;
+    document.write(num1 ** num2);
+
+    document.write(`
+      <h2>NaN</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var num1 = 0;<br />
+        var num2 = 0;<br />
+        document.write(num1 / num2); //  自分自身を含むすべての値と等しくない<br />
+        <br />
+        var num1 = Number.NaN;<br />
+        var num2 = Number.NaN;<br />
+        document.write(num1 === num2); // false
+      </div>
+    `);
+    var num1 = 0;
+    var num2 = 0;
+    document.write(num1 / num2, '<br />');
+    var num1 = Number.NaN;
+    var num2 = Number.NaN;
+    document.write(num1 === num2, '<br />');
+
+    document.write(`
+      <h2>MAX_SAFE_INTEGER / MIN_SAFE_INTEGER</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(Number.MAX_SAFE_INTEGER); // jsで安全に演算できる上限値<br />
+        document.write(Number.MIN_SAFE_INTEGER); // jsで安全に演算できる下限値<br />
+      </div>
+    `);
+    document.write('<b>Number.MAX_SAFE_INTEGER</b>', '<br />');
+    document.write(Number.MAX_SAFE_INTEGER, '<br />');
+    document.write(Number.MAX_SAFE_INTEGER + 1, '<br />');
+    document.write(Number.MAX_SAFE_INTEGER + 2, '<br />');
+    document.write('<b>Number.MIN_SAFE_INTEGER</b>', '<br />');
+    document.write(Number.MIN_SAFE_INTEGER, '<br />');
+    document.write(Number.MIN_SAFE_INTEGER - 1, '<br />');
+    document.write(Number.MIN_SAFE_INTEGER - 2, '<br />');
+
+    document.write(`
+      <h2>toString</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var num1 = 255;<br />
+        console.log(num1.toString(2)); // 11111111<br />
+        console.log(num1.toString(8)); // 377<br />
+        console.log(num1.toString(10)); // 255<br />
+        console.log(num1.toString(16)); // ff<br />
+      </div>
+    `);
+    var num1 = 255;
+    document.write(num1.toString(2), '<br />');
+    document.write(num1.toString(8), '<br />');
+    document.write(num1.toString(10), '<br />');
+    document.write(num1.toString(16), '<br />');
+
+    document.write(`
+      <h2>toExponential / toFixed / toPrecision</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var num2 = 123.45678;<br />
+        document.write(num2.toExponential(2)); // 指数形式に変換<br />
+        document.write(num2.toFixed(3)); // 少数点第3位になるよう四捨五入<br />
+        document.write(num2.toFixed(7));<br />
+        document.write(num2.toPrecision(10)); // 指定桁数に変換（整数部も含めた全体桁数）<br />
+        document.write(num2.toPrecision(6)); // <br />
+      </div>
+    `);
+    var num2 = 123.45678;
+    document.write(num2.toExponential(2), '<br />');
+    document.write(num2.toFixed(3), '<br />');
+    document.write(num2.toFixed(7), '<br />');
+    document.write(num2.toPrecision(10), '<br />');
+    document.write(num2.toPrecision(6), '<br />');
+
+    document.write(`
+      <h2>parse(文字列混在)</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var n = '123xxx';<br />
+        document.write(Number(n));<br />
+        document.write(Number.parseFloat(n));<br />
+        document.write(Number.parseInt(n));<br />
+      </div>
+    `);
+    var n = '123xxx';
+    document.write(Number(n), '<br />');
+    document.write(Number.parseFloat(n), '<br />');
+    document.write(Number.parseInt(n), '<br />');
+
+    document.write(`
+      <h2>parse(Dateオブジェクト)</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var n = new Date();<br />
+        document.write(Number(n));<br />
+        document.write(Number.parseFloat(n));<br />
+        document.write(Number.parseInt(n));<br />
+      </div>
+    `);
+    var n = new Date();
+    document.write(Number(n), '<br />');
+    document.write(Number.parseFloat(n), '<br />');
+    document.write(Number.parseInt(n), '<br />');
+
+    document.write(`
+      <h2>parse(16進数)</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var n = '0x10';<br />
+        document.write(Number(n));<br />
+        document.write(Number.parseFloat(n));<br />
+        document.write(Number.parseInt(n));<br />
+      </div>
+    `);
+    var n = '0x10';
+    document.write(Number(n), '<br />');
+    document.write(Number.parseFloat(n), '<br />');
+    document.write(Number.parseInt(n), '<br />');
+
+    document.write(`
+      <h2>parse(8進数)</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var n = '0b11';<br />
+        document.write(Number(n));<br />
+        document.write(Number.parseFloat(n));<br />
+        document.write(Number.parseInt(n));<br />
+      </div>
+    `);
+    var n = '0b11';
+    document.write(Number(n), '<br />');
+    document.write(Number.parseFloat(n), '<br />');
+    document.write(Number.parseInt(n), '<br />');
+
+    document.write(`
+      <h2>parse(浮動小数点の指数表現)</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var n = '1.01e+2';<br />
+        document.write(Number(n));<br />
+        document.write(Number.parseFloat(n));<br />
+        document.write(Number.parseInt(n));<br />
+      </div>
+    `);
+    var n = '1.01e+2';
+    document.write(Number(n), '<br />');
+    document.write(Number.parseFloat(n), '<br />');
+    document.write(Number.parseInt(n), '<br />');
+  </script>
+</body>
+</html>
