@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-2 サロゲートペア文字.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>サロゲートペア文字</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let str = '🌋';
+      </div>
+    `);
+    let str = '🌋';
+
+    document.write(`
+      <h2>サロゲートペアの文字列の長さを取得するが。。。</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write('🌋 の文字列 -> ', str.length);
+      </div>
+    `);
+    document.write('🌋 の文字列 -> ', str.length);
+
+    document.write(`
+      <h2>サロゲートペアの文字列の長さを取得する方法</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let num = str.split(/[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]/g).length - 1;<br />
+        document.write('🌋 の文字列 -> ', str.length - num);
+      </div>
+    `);
+    let num = str.split(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g).length - 1;
+    document.write('🌋 の文字列 -> ', str.length - num);
+  </script>
+</body>
+</html>
