@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-1 String object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>String object</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let str1 = 'にわにはにわにわとりがいる';<br />
+        let str2 = 'Wingsプロジェクト';<br />
+        let str3 = '叱られて';<br />
+        let str4 = '   wings   ';<br />
+      </div>
+    `);
+    let str1 = 'にわにはにわにわとりがいる';
+    let str2 = 'Wingsプロジェクト';
+    let str3 = '叱られて';
+    let str4 = '   wings   ';
+
+    document.write(`
+      <h2>indexOf</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.indexOf('にわ')); // 先頭から検索
+      </div>
+    `);
+    document.write(str1.indexOf('にわ')); // 0
+
+    document.write(`
+      <h2>lastIndexOf</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.lastIndexOf('にわ')); // 末尾から検索
+      </div>
+    `);
+    document.write(str1.lastIndexOf('にわ')); // 6
+
+    document.write(`
+      <h2>lastIndexOf</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.indexOf('にわ', 3));  // 4文字目から右方向検索
+      </div>
+    `);
+    document.write(str1.indexOf('にわ', 3));  // 4
+
+    document.write(`
+      <h2>lastIndexOf</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.lastIndexOf('わ', 5));  // 6文字目から左方向検索
+      </div>
+    `);
+    document.write(str1.lastIndexOf('わ', 5)); // 5
+
+    document.write(`
+      <h2>indexOf</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.indexOf('ガーデン')); // 不一致時は-1
+      </div>
+    `);
+    document.write(str1.indexOf('ガーデン')); // -1
+
+    document.write(`
+      <h2>startsWith</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.startsWith('にわ')); // 開始が指定された文字列か
+      </div>
+    `);
+    document.write(str1.startsWith('にわ')); // true
+
+    document.write(`
+      <h2>endsWith</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.endsWith('にわ')); // 末尾が指定された文字列か
+      </div>
+    `);
+    document.write(str1.endsWith('にわ')); // false
+
+    document.write(`
+      <h2>includes</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.includes('にわ')) // 文字列内に指定された文字列が含まれるか
+      </div>
+    `);
+    document.write(str1.includes('にわ')) // true
+
+    document.write(`
+      <h2>charAt</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.charAt(4)); // 5文字目を抽出
+      </div>
+    `);
+    document.write(str2.charAt(4)); // s
+
+    document.write(`
+      <h2>slice</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.slice(5, 8)); // 6〜8文字目を抽出
+      </div>
+    `);
+    document.write(str2.slice(5, 8)); // プロジ
+
+    document.write(`
+      <h2>substring</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.substring(5, 8)); // 6〜8文字目を抽出
+      </div>
+    `);
+    document.write(str2.substring(5, 8)); // プロジ
+
+    document.write(`
+      <h2>substr</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.substr(5, 3)); // 6文字目から3文字抽出
+      </div>
+    `);
+    document.write(str2.substr(5, 3)); // プロジ
+
+    document.write(`
+      <h2>split</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.split('s')); // 文字列を指定文字列で分割
+      </div>
+    `);
+    document.write(str2.split('s')); // ["Wing", "プロジェクト"]
+
+    document.write(`
+      <h2>split</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str1.split('わ', 3)); // ["に", "にはに", "に"]
+      </div>
+    `);
+    document.write(str1.split('わ', 3)); // ["に", "にはに", "に"]
+
+    document.write(`
+      <h2>charCodeAt</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.charCodeAt(0)); // 87
+      </div>
+    `);
+    document.write(str2.charCodeAt(0)); // 87
+
+    document.write(`
+      <h2>fromCharCode</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(String.fromCharCode(169, 87, 73, 78, 71, 83)); // unicodeを文字列変換
+      </div>
+    `);
+    document.write(String.fromCharCode(169, 87, 73, 78, 71, 83)); // ©WINGS
+
+    document.write(`
+      <h2>codePointAt</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str3.codePointAt(0)); // 21489
+      </div>
+    `);
+    document.write(str3.codePointAt(0)); // 21489
+
+    document.write(`
+      <h2>fromCodePoint</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(String.fromCodePoint(134047)); // 叱
+      </div>
+    `);
+    document.write(String.fromCodePoint(134047)); // 叱
+
+    document.write(`
+      <h2>concat</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.concat(' 有限会社')); // 文字列連結
+      </div>
+    `);
+    document.write(str2.concat(' 有限会社')); // Wingsプロジェクト 有限会社
+
+
+    document.write(`
+      <h2>repeat</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.repeat(2)); // 文字列を指定回数分
+      </div>
+    `);
+    document.write(str2.repeat(2)); // WingsプロジェクトWingsプロジェクト
+
+    document.write(`
+      <h2>trim</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str4.trim()); // 文字列から空白を削除
+      </div>
+    `);
+    document.write(str4.trim()); // wings
+
+    document.write(`
+      <h2>length</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      document.write(str2.length); // 文字列の長さ取得
+      </div>
+    `);
+    document.write(str2.length); // 11
+  </script>
+</body>
+</html>
