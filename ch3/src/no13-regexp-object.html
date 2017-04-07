@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-13 RegExp object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>RegExp object</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>gオプション</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/g;<br />
+        var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+        str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
+        var result = str.match(p);<br />
+        for (var i = 0, len = result.length; i < len; i++) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(result[i]);<br />
+        }<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/g;
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    var result = str.match(p);
+    for (var i = 0, len = result.length; i < len; i++) {
+      document.write(result[i], '<br />');
+    }
+
+    document.write(`
+      <h2>iオプション</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
+        var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+        str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
+        var result = str.match(p);<br />
+        for (var i = 0, len = result.length; i < len; i++) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(result[i]);<br />
+        }<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    var result = str.match(p);
+    for (var i = 0, len = result.length; i < len; i++) {
+      document.write(result[i], '<br />');
+    }
+
+    document.write(`
+      <h2>mオプション</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var str = '101匹ワンちゃん。 \n7人の小人';<br />
+
+        var p1 = /^[0-9]{1,}/g;<br />
+        var result1 = str.match(p1);<br />
+        for (var i = 0, len = result1.length; i < len; i++) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(result1[i]);<br />
+        }
+
+        var p2 = /^[0-9]{1,}/gm;<br />
+        var result2 = str.match(p2);<br />
+        for (var i = 0, len = result2.length; i < len; i++) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(result2[i]);<br />
+        }
+        <br />
+      </div>
+    `);
+    var str = '101匹ワンちゃん。 \n7人の小人';
+
+    var p1 = /^[0-9]{1,}/g;
+    var result1 = str.match(p1);
+    for (var i = 0, len = result1.length; i < len; i++) {
+      document.write('gオプションのみの場合 -> ', result1[i], '<br />');
+    }
+
+    var p2 = /^[0-9]{1,}/gm;
+    var result2 = str.match(p2);
+    for (var i = 0, len = result2.length; i < len; i++) {
+      document.write('mオプション追加した場合 -> ', result2[i], '<br />');
+    }
+
+    document.write(`
+      <h2>uオプション</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var str = '🍖お肉';<br />
+        <br />
+        var result1 = str.match(/^.お肉$/g);<br />
+        result1 === null && document.write('gオプションのみの場合 -> ', result1);<br />
+        <br />
+        var result2 = str.match(/^.お肉$/gu);<br />
+        for (var i = 0, len = result2.length; i < len; i++) {<br />
+          document.write('uオプション追加した場合 -> ', result2[i]);<br />
+        }<br />
+      </div>
+    `);
+    var str = '🍖お肉';
+
+    var result1 = str.match(/^.お肉$/g);
+    result1 === null && document.write('gオプションのみの場合 -> ', result1, '<br />');
+
+    var result2 = str.match(/^.お肉$/gu);
+    for (var i = 0, len = result2.length; i < len; i++) {
+      document.write('uオプション追加した場合 -> ', result2[i], '<br />');
+    }
+  </script>
+</body>
+</html>
