@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-14 matchメソドとexecメソッド.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>matchメソドとexecメソッド</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>matchメソッド</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
+        var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+        str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
+        var result = str.match(p);<br />
+        for (var i = 0, len = result.length; i < len; i++) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(result[i]);<br />
+        }<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    var result = str.match(p);
+    for (var i = 0, len = result.length; i < len; i++) {
+      document.write(result[i], '<br />');
+    }
+
+    document.write(`
+      <h2>execメソッド</h2>
+      <p>gオプションが有効であるかどうかにかかわらず一度の実行で一つの実行結果しか返さない。</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
+        var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+        str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
+        var result = p.exec(str);<br />
+        for (var i = 0, len = result.length; i < len; i++) {<br />
+          document.write(result[i]);<br />
+        }<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    var result = p.exec(str);
+    for (var i = 0, len = result.length; i < len; i++) {
+      document.write(result[i], '<br />');
+    }
+
+    document.write(`
+      <h2>execメソッドmatchと同じ挙動にするためには</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
+        var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+        str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
+        while((result = p.exec(str) !== null)) {<br />
+          document.write(result[0]);<br />
+        }<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    while ((result = p.exec(str)) !== null) {
+      document.write(result[0], '<br />');
+    }
+  </script>
+</body>
+</html>
