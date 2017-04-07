@@ -29,14 +29,17 @@
 
     document.write(`
       <h2>execメソッド</h2>
-      <p>gオプションが有効であるかどうかにかかわらず一度の実行で一つの実行結果しか返さない。</p>
+      <p>
+        gオプションが有効であるかどうかにかかわらず一度の実行で一つの実行結果しか返さない。<br />
+        <a href="http://qiita.com/nanocloudx/items/079685599273f3805f77" target="_blank">正規表現を複数回実行する際の注意点</a>
+      </p>
       <div style="padding: 10px; background-color: #eee; color: green;">
         var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
         var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
         str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
         var result = p.exec(str);<br />
         for (var i = 0, len = result.length; i < len; i++) {<br />
-          document.write(result[i]);<br />
+          &nbsp;&nbsp;&nbsp;document.write(result[i]);<br />
         }<br />
       </div>
     `);
@@ -55,7 +58,7 @@
         var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
         str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
         while((result = p.exec(str) !== null)) {<br />
-          document.write(result[0]);<br />
+          &nbsp;&nbsp;&nbsp;document.write(result[0]);<br />
         }<br />
       </div>
     `);
