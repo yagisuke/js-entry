@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-11 date object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>date object</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(new Date());<br />
+        document.write(new Date('2016/12/4 20:07:15'));<br />
+        document.write(new Date('Sun Dec 04 2016 20:07:15'));<br />
+        document.write(new Date(2016, 12 - 1, 4, 20, 07, 15, 500));<br />
+        document.write(new Date(1480849635500)); // タイムスタンプ値 <br />
+      </div>
+    `);
+    document.write(new Date(), '<br />');
+    document.write(new Date('2016/12/4 20:07:15'), '<br />');
+    document.write(new Date('Sun Dec 04 2016 20:07:15'), '<br />');
+    document.write(new Date(2016, 12 - 1, 4, 20, 07, 15, 500), '<br />');
+    document.write(new Date(1480849635500), '// タイムスタンプ値<br />');
+    document.write('<br />');
+
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var dat = new Date(2016, 12 - 1, 4, 20, 07, 15, 500);
+      </div>
+    `);
+    var dat = new Date(2016, 12 - 1, 4, 20, 07, 15, 500);
+    document.write('dat -> ', dat, '<br />');
+    document.write('dat.getFullYear() -> ', dat.getFullYear(), '<br />');
+    document.write('dat.getMonth() -> ', dat.getMonth(), '<br />');
+    document.write('dat.getDate() -> ', dat.getDate(), '<br />');
+    document.write('dat.getDay() -> ', dat.getDay(), '<br />');
+    document.write('dat.getHours() -> ', dat.getHours(), '<br />');
+    document.write('dat.getMinutes() -> ', dat.getMinutes(), '<br />');
+    document.write('dat.getSeconds() -> ', dat.getSeconds(), '<br />');
+    document.write('dat.getMilliseconds() -> ', dat.getMilliseconds(), '<br />');
+    document.write('dat.getTime() -> ', dat.getTime(), '<br />');
+    document.write('dat.getTimezoneOffset() -> ', dat.getTimezoneOffset(), '<br />');
+    document.write('dat.getUTCFullYear() -> ', dat.getUTCFullYear(), '<br />');
+    document.write('dat.getUTCMonth() -> ', dat.getUTCMonth(), '<br />');
+    document.write('dat.getUTCDate() -> ', dat.getUTCDate(), '<br />');
+    document.write('dat.getUTCHours() -> ', dat.getUTCDay(), '<br />');
+    document.write('dat.getUTCHours() -> ', dat.getUTCHours(), '<br />');
+    document.write('dat.getUTCMinutes() -> ', dat.getUTCMinutes(), '<br />');
+    document.write('dat.getUTCSeconds() -> ', dat.getUTCSeconds(), '<br />');
+    document.write('dat.getMilliseconds() -> ', dat.getMilliseconds(), '<br />');
+    document.write('<br />');
+
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var dat2 = new Date();<br />
+        dat2.setFullYear(2017);<br />
+        dat2.setMonth(7);<br />
+        dat2.setDate(5);<br />
+        dat2.setHours(11);<br />
+        dat2.setMinutes(37);<br />
+        dat2.setSeconds(15);<br />
+        dat2.setMilliseconds(513);<br />
+      </div>
+    `);
+    var dat2 = new Date();
+    dat2.setFullYear(2017);
+    dat2.setMonth(7);
+    dat2.setDate(5);
+    dat2.setHours(11);
+    dat2.setMinutes(37);
+    dat2.setSeconds(15);
+    dat2.setMilliseconds(513);
+    document.write('dat2.toLocaleString() -> ', dat2.toLocaleString(), '<br />');
+    document.write('dat2.toUTCString() -> ', dat2.toUTCString(), '<br />');
+    document.write('dat2.toDateString() -> ', dat2.toDateString(), '<br />');
+    document.write('dat2.toTimeString() -> ', dat2.toTimeString(), '<br />');
+    document.write('dat2.toLocaleDateString() -> ', dat2.toLocaleDateString(), '<br />');
+    document.write('dat2.toLocaleTimeString() -> ', dat2.toLocaleTimeString(), '<br />');
+    document.write('dat2.toJSON() -> ', dat2.toJSON(), '<br />');
+
+    document.write('<br />');
+    document.write('Date.parse(\'2016, 11, 5\') -> ', Date.parse('2016, 11, 5'), '<br />');
+    document.write('Date.UTC(2016, 11, 5) -> ', Date.UTC(2016, 11, 5), '<br />');
+    document.write('Date.now() -> ', Date.now(), '<br />');
+  </script>
+</body>
+</html>
