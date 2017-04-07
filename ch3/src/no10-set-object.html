@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-10 set object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>set object</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let s = new Set();<br />
+        s.add(10);<br />
+        s.add(5);<br />
+        s.add(100);<br />
+        s.add(5);<br />
+        <br />
+        document.write(s.has(100));<br />
+        document.write(s.size);<br />
+        <br />
+        for (let val of s.values()) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(val, ', ');<br />
+        }<br />
+        <br />
+        for (let val of s) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(val, ', ');<br />
+        }<br />
+        <br />
+        s.delete(100);<br />
+        s.clear();<br />
+        document.write(s.size);<br />
+      </div>
+    `);
+
+    let s = new Set();
+    s.add(10);
+    s.add(5);
+    s.add(100);
+    s.add(5);
+
+    document.write(s.has(100), '<br />');
+    document.write(s.size, '<br />');
+
+    for (let val of s.values()) {
+      document.write(val, ', ');
+    }
+    document.write('<br />');
+
+    for (let val of s) {
+      document.write(val, ', ');
+    }
+    document.write('<br />');
+
+    s.delete(100);
+    s.clear();
+    document.write(s.size);
+  </script>
+</body>
+</html>
