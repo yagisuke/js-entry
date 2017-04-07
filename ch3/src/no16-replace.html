@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-16 文字列置換.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>文字列置換</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>replaceメソッド</h2>
+        <div style="padding: 10px; background-color: #eee; color: green;">
+          var p = /(http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?)/gi;<br />
+          var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+          // str.replace(pattern, rep)<br />
+          // str: 置き換え対象文字列, pattern: 正規表現, rep: 置き換え後の文字列<br />
+          document.write(str.replace(p, '&lt;a href="$1"&gt;$1&lt;/a&gt;'));<br />
+      </div>
+    `);
+    var p = /(http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?)/gi;
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    document.write(str.replace(p, '<a href="$1">$1</a>'));
+  </script>
+</body>
+</html>
