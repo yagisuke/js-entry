@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-15 マッチングの成否の検証.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>マッチングの成否の検証</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>matchメソッド</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
+        var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+        str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
+        var result = str.match(p);<br />
+        for (var i = 0, len = result.length; i < len; i++) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(result[i]);<br />
+        }<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str1 = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str2 = 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    document.write(p.test(str1), '<br />');
+    document.write(p.test(str2), '<br />');
+  </script>
+</body>
+</html>
