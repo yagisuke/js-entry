@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-12 date calc.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>date calc</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>MonthとDateの日付の操作</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var dat = new Date(2017, 4, 15, 11, 40);<br />
+        document.write(dat.toLocaleString());<br />
+        dat.setMonth(dat.getMonth() + 3);<br />
+        document.write(dat.toLocaleString());<br />
+        dat.setDate(dat.getDate() - 20);<br />
+        document.write(dat.toLocaleString());<br />
+      </div>
+    `);
+    var dat = new Date(2017, 4, 15, 11, 40);
+    document.write(dat.toLocaleString(), '<br />');
+    dat.setMonth(dat.getMonth() + 3);
+    document.write(dat.toLocaleString(), '<br />');
+    dat.setDate(dat.getDate() - 20);
+    document.write(dat.toLocaleString(), '<br />');
+
+    document.write(`
+      <h2>先月の最終日</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      var dat = new Date(2017, 4, 15, 11, 40);<br />
+      document.write(dat.toLocaleString());<br />
+      dat.setMonth(dat.getMonth() + 1);<br />
+      document.write(dat.toLocaleString());<br />
+      dat.setDate(0);<br />
+      document.write(dat.toLocaleString());<br />
+      </div>
+    `);
+    var dat = new Date(2017, 4, 15, 11, 40);
+    document.write(dat.toLocaleString(), '<br />');
+    dat.setDate(0);
+    document.write(dat.toLocaleString(), '<br />');
+
+    document.write(`
+      <h2>日付の差</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var dat1 = new Date(2017, 4, 15);<br />
+        var dat2 = new Date(2017, 5, 20);<br />
+        var diff = (dat2.getTime() - dat1.getTime()) / (1000 * 60 * 60 * 24);<br />
+        document.write(diff + '日の差があります。');<br />
+      </div>
+    `);
+    var dat1 = new Date(2017, 4, 15);
+    var dat2 = new Date(2017, 5, 20);
+    var diff = (dat2.getTime() - dat1.getTime()) / (1000 * 60 * 60 * 24);
+    document.write(diff + '日の差があります。');
+  </script>
+</body>
+</html>
