@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-9 map object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>map object</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        let m = new Map();<br />
+        m.set('dog', 'ワンワン');<br />
+        m.set('cat', 'ニャーニャー');<br />
+        m.set('mouse', 'チューチュー');<br />
+        <br />
+        document.write(m.size);<br />
+        document.write(m.get('dog'));<br />
+        document.write(m.has('cat'));<br />
+        <br />
+        for (let key of m.keys()) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(key);<br />
+        }<br />
+        <br />
+        for (let value of m.values()) {<br />
+          document.write(value);<br />
+        }<br />
+        <br />
+        for (let [key, value] of m) {<br />
+          document.write(value);<br />
+        }<br />
+        <br />
+        m.delete('dog');<br />
+        document.write(m.size);<br />
+        <br />
+        m.clear();<br />
+        document.write(m.size);<br />
+      </div><br />
+    `);
+    let m = new Map();
+    m.set('dog', 'ワンワン');
+    m.set('cat', 'ニャーニャー');
+    m.set('mouse', 'チューチュー');
+
+    document.write(m.size, '<br />');
+    document.write(m.get('dog'), '<br />');
+    document.write(m.has('cat'), '<br />');
+
+    for (let key of m.keys()) {
+      document.write(key, ',');
+    }
+    document.write('<br />');
+
+    for (let value of m.values()) {
+      document.write(value, ',');
+    }
+    document.write('<br />');
+
+    for (let [key, value] of m) {
+      document.write(value, ',');
+    }
+    document.write('<br />');
+
+    m.delete('dog');
+    document.write(m.size, '<br />');
+
+    m.clear();
+    document.write(m.size, '<br />');
+  </script>
+</body>
+</html>
