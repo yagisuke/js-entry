@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-7 Array object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Array object</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var arry1 = ['sato', 'tanaka', 'ogawa', 'saito', 'sato'];<br />
+        var arry2 = ['yabuki', 'aoki', 'moriyama', 'yamada'];<br />
+      </div>
+    `);
+    var arry1 = ['sato', 'tanaka', 'ogawa', 'saito', 'sato'];
+    var arry2 = ['yabuki', 'aoki', 'moriyama', 'yamada'];
+
+    document.write(`
+      <h2>length(ex: Math</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1.length);<br />
+      </div>
+    `);
+    document.write(arry1.length, '<br />');
+
+    document.write(`
+      <h2>isArray</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(Array.isArray(arry1));<br />
+      </div>
+    `);
+    document.write(Array.isArray(arry1), '<br />');
+
+    document.write(`
+      <h2>toString</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1.toString());<br />
+      </div>
+    `);
+    document.write(arry1.toString());
+
+    document.write(`
+      <h2>indexOf</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1.indexOf('sato'));<br />
+      </div>
+    `);
+    document.write(arry1.indexOf('sato'), '<br />');
+
+    document.write(`
+      <h2>lastIndexOf</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1.lastIndexOf('saito'));<br />
+      </div>
+    `);
+    document.write(arry1.lastIndexOf('saito'), '<br />');
+
+    document.write(`
+      <h2>concat</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        document.write(arry1.concat(arry2));<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.concat(arry2), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>join</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        document.write(arry1.join('/'));<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.join('/'), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>slice</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        document.write(arry1.slice(1));<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.slice(1), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>splice<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        // 配列を置き換えて、置き換え対象の項目を取得<br />
+        document.write(arry1.splice(1, 2, 'kakeya', 'yamaguchi'));<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.splice(1, 2, 'kakeya', 'yamaguchi'), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>配列化</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(Array.of(20, 40, 60));<br />
+      </div>
+    `);
+    document.write(Array.of(20, 40, 60), '<br />');
+
+    document.write(`
+      <h2>copyWithin<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        // copyWithin(target, start, end?) <br />
+        // target位置のindexに、startからend間のインデックスをコピーして貼り付ける<br />
+        document.write(arry1.copyWithin(1, 3, 5));<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.copyWithin(1, 3, 5), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>fill<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry2);<br />
+        document.write(arry2.fill('suzuki', 1, 3));<br />
+        document.write(arry2);<br />
+      </div>
+    `);
+    document.write(arry2, '<br />');
+    // 2から3番目の要素を"suzuki"で置換
+    document.write(arry2.fill('suzuki', 1, 3), '<br />');
+    document.write(arry2, '<br />');
+
+    document.write(`
+      <h2>pop<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        arry1 = ['yabuki', 'suzuki', 'suzuki', 'yamada'];<br />
+        document.write(arry1);<br />
+        // 末尾の要素を削除し、削除した要素を返却<br />
+        document.write(arry1.pop());<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    arry1 = ['yabuki', 'suzuki', 'suzuki', 'yamada'];
+    document.write(arry1, '<br />');
+    document.write(arry1.pop(), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>push<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        // 配列に新しい要素を追加し、追加後の要素数を返却
+        document.write(arry1.push('kondo'));<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.push('kondo'), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>shift<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        // 先頭の要素を削除し、削除した要素を返却<br />
+        document.write(arry1.shift());<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.shift(), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>unshift<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        // 先頭に要素を追加し、追加後の要素数を返却
+        document.write(arry1.unshift('ozawa', 'aoyama'));<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.unshift('ozawa', 'aoyama'), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>reverse<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        document.write(arry1.reverse());<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.reverse(), '<br />');
+    document.write(arry1, '<br />');
+
+    document.write(`
+      <h2>sort<破壊的メソッド></h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(arry1);<br />
+        document.write(arry1.sort());<br />
+        document.write(arry1);<br />
+      </div>
+    `);
+    document.write(arry1, '<br />');
+    document.write(arry1.sort(), '<br />');
+    document.write(arry1, '<br />');
+  </script>
+</body>
+</html>
