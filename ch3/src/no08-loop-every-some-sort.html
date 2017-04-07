@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-8 loop, every, some, sort.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>loop, every, some, sort</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>forEach</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      var data = [2, 3, 4, 5];<br />
+      data.forEach(function(value, index, array) {<br />
+        &nbsp;&nbsp;&nbsp;document.write('index: ', index, ' , value: ', value, ' , array: ', array);<br />
+      });<br />
+      </div>
+    `);
+    var data = [2, 3, 4, 5];
+    data.forEach(function(value, index, array) {
+      document.write('index: ', index, ' , value: ', value, ' , array: ', array, '<br />');
+    });
+
+    document.write(`
+      <h2>map</h2>
+      <p>mapは戻り値を返却する必要がある。</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      var data = [2, 3, 4, 5];<br />
+      var result = data.map(function(value, index, array) {<br />
+        &nbsp;&nbsp;&nbsp;document.write('index: ', index, ' , value: ', value, ' , array: ', array);<br />
+        &nbsp;&nbsp;&nbsp;return value * value;<br />
+      });
+      document.write(result);<br />
+      </div>
+    `);
+    var data = [2, 3, 4, 5];
+    var result = data.map(function(value, index, array) {
+      document.write('index: ', index, ' , value: ', value, ' , array: ', array, '<br />');
+      return value * value;
+    });
+    document.write(result);
+
+    document.write(`
+      <h2>every</h2>
+      <p>要素がすべて条件に合致しているか</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var data = [4, 12, 14, 19];<br />
+        var result = data.some(function(value, index, array) {<br />
+          &nbsp;&nbsp;&nbsp;return value % 3 === 0;<br />
+        });<br />
+        <br />
+        if (result) {<br />
+          &nbsp;&nbsp;&nbsp;document.write('result -> ', result, ' ※3の倍数の要素しかありません。');<br />
+        } else {<br />
+          &nbsp;&nbsp;&nbsp;document.write('result -> ', result, ' ※3の倍数ではない要素があります。');<br />
+        }<br />
+      </div>
+    `);
+    var data = [4, 12, 14, 19];
+    var result = data.every(function(value, index, array) {
+      return value % 3 === 0;
+    });
+    if (result) {
+      document.write('result -> ', result, ' ※3の倍数の要素しかありません。');
+    } else {
+      document.write('result -> ', result, ' ※3の倍数ではない要素があります。');
+    }
+
+    document.write(`
+      <h2>some</h2>
+      <p>要素が1つでも条件に合致しているか</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var data = [4, 12, 14, 19];<br />
+        var result = data.some(function(value, index, array) {<br />
+          &nbsp;&nbsp;&nbsp;return value % 3 === 0;<br />
+        });<br />
+        if (result) {<br />
+          &nbsp;&nbsp;&nbsp;document.write('result -> ', result, ' ※3の倍数が見つかりました。');<br />
+        } else {<br />
+          &nbsp;&nbsp;&nbsp;document.write('result -> ', result, ' ※3の倍数は見つかりませんでした。');<br />
+        }<br />
+      </div>
+    `);
+    var data = [4, 12, 14, 19];
+    var result = data.some(function(value, index, array) {
+      return value % 3 === 0;
+    });
+    if (result) {
+      document.write('result -> ', result, ' ※3の倍数が見つかりました。');
+    } else {
+      document.write('result -> ', result, ' ※3の倍数は見つかりませんでした。');
+    }
+
+    document.write(`
+      <h2>filter</h2>
+      <p>条件に合致した要素を取得</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var data = [7, 16, 15, 18];<br />
+        var result = data.filter(function(value, index, array) {<br />
+          &nbsp;&nbsp;&nbsp;return value % 2 === 1;<br />
+        });<br />
+        <br />
+        document.write(result);<br />
+      </div>
+    `);
+    var data = [7, 16, 15, 18];
+    var result = data.filter(function(value, index, array) {
+      return value % 2 === 1;
+    });
+    document.write(result);
+
+    document.write(`
+      <h2>sort</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var data = [37, 16, 5, 18];<br />
+        document.write(data.sort()); // 文字列としてソート<br />
+        data.sort(function(x, y) {<br />
+          &nbsp;&nbsp;&nbsp;return x - y;<br />
+        });<br />
+        document.write(data); // 数値としてソート<br />
+      </div>
+    `);
+    var data = [37, 16, 5, 18];
+    document.write(data.sort(), '<br />');
+    data.sort(function(x, y) {
+      return x - y;
+    });
+    document.write(data);
+
+    document.write(`
+      <h2>sort_clazz</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var classes = ['女優', 'モデル', 'アナウンサー', 'アイドル'];<br />
+        var members = [<br />
+          &nbsp;&nbsp;&nbsp;{name: '田中美保', clazz: 'モデル'},<br />
+          &nbsp;&nbsp;&nbsp;{name: '石原さとみ', clazz: '女優'},<br />
+          &nbsp;&nbsp;&nbsp;{name: '白石麻衣', clazz: 'アイドル'},<br />
+          &nbsp;&nbsp;&nbsp;{name: '平井理央', clazz: 'アナウンサー'},<br />
+          &nbsp;&nbsp;&nbsp;{name: '榮倉奈々', clazz: '女優'},<br />
+        ];<br />
+        members.sort(function(x, y) {<br />
+          &nbsp;&nbsp;&nbsp;return classes.indexOf(x.clazz) - classes.indexOf(y.clazz);<br />
+        });<br />
+        members.forEach(function(value, index) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(index, ': ', value.clazz, '/ ', value.name);<br />
+        });<br />
+      </div>
+    `);
+    var classes = ['女優', 'モデル', 'アナウンサー', 'アイドル'];
+    var members = [
+      {name: '田中美保', clazz: 'モデル'},
+      {name: '石原さとみ', clazz: '女優'},
+      {name: '白石麻衣', clazz: 'アイドル'},
+      {name: '平井理央', clazz: 'アナウンサー'},
+      {name: '榮倉奈々', clazz: '女優'},
+    ];
+    members.sort(function(x, y) {
+      return classes.indexOf(x.clazz) - classes.indexOf(y.clazz);
+    });
+    members.forEach(function(value, index) {
+      document.write(index, ': ', value.clazz, '/ ', value.name, '<br />');
+    });
+  </script>
+</body>
+</html>
