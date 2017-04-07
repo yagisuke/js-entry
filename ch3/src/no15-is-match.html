@@ -8,23 +8,67 @@
   <h1>マッチングの成否の検証</h1>
   <script type="text/javascript">
     document.write(`
+      <h2>testメソッド</h2>
+      <a href="http://qiita.com/nanocloudx/items/079685599273f3805f77" target="_blank">正規表現を複数回実行する際の注意点</a>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/i;<br />
+        document.write(p.test('サポートサイトはhttp://www.wings.msn.to/です。'));<br />
+        document.write(p.test('サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！'));<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    var result = p.test(str);
+    document.write(result, '<br />');
+
+    document.write(`
+      <h2>searchメソッド</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
+        var str1 = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+        var str2 = 'サンプル紹介サイトもよろしく！';<br />
+        document.write(str1.search(p) > 0);<br />
+        document.write(str2.search(p) > 0);<br />
+      </div>
+    `);
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
+    var str1 = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    var str2 = 'サンプル紹介サイトもよろしく！';
+    document.write(str1.search(p) > 0, '<br />');
+    document.write(str2.search(p) > 0, '<br />');
+
+    document.write(`
       <h2>matchメソッド</h2>
       <div style="padding: 10px; background-color: #eee; color: green;">
         var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
         var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
         str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
-        var result = str.match(p);<br />
-        for (var i = 0, len = result.length; i < len; i++) {<br />
-          &nbsp;&nbsp;&nbsp;document.write(result[i]);<br />
-        }<br />
+        var matchStr = str.match(p);<br />
+        document.write(matchStr !== null);<br />
       </div>
     `);
     var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
-    var str1 = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    var matchStr = str.match(p);
+    document.write(matchStr !== null, '<br />');
+
+    document.write(`
+      <h2>execメソッド</h2>
+      <a href="http://qiita.com/nanocloudx/items/079685599273f3805f77" target="_blank">正規表現を複数回実行する際の注意点</a>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br />
+      var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br />
+      str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br />
+      document.write(execStr !== null);<br />
+      </div>
+    `);
     var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;
-    var str2 = 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
-    document.write(p.test(str1), '<br />');
-    document.write(p.test(str2), '<br />');
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';
+    var execStr = p.exec(str);
+    document.write(execStr !== null, '<br />');
   </script>
 </body>
 </html>
