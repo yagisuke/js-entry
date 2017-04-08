@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-21 不変オブジェクトの定義.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>preventExtensionsメソッド / sealメソッド / freezeメソッド</h1>
+  <p>
+    使用する場合はstrictモードに。<br />
+    ただし、ie9ではそもそも例外を発生しない。
+  </p>
+  <script type="text/javascript">
+    'use strict';
+
+    var pet = {type: 'スノーハムスター', name: 'キラ'};
+    Object.preventExtensions(pet); // プロパティ<追加>をできなくする
+    // Object.seal(pet); // プロパティ<追加><削除>をできなくする
+    // Object.freeze(pet); // プロパティ<追加><削除><変更>をできなくする
+
+    pet.name = '山田キラ';
+    delete pet.type;
+    pet.weight = 42;
+
+    console.log(pet);
+  </script>
+</body>
+</html>
