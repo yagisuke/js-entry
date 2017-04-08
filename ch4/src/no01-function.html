@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-1 関数.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>関数</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>function命令</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function getTriangle(base, height) {<br />
+          &nbsp;&nbsp;&nbsp;return base * height / 2;<br />
+        }<br />
+        document.write('三角形の面積: ', getTriangle(5, 2));<br />
+      </div>
+    `);
+    function getTriangle(base, height) {
+      return base * height / 2;
+    }
+    document.write('三角形の面積: ', getTriangle(5, 2));
+
+    document.write(`
+      <h2>Functionコンストラクタ</h2>
+      <p>
+        eval関数と同様に、乱用は避けるべき。<br />
+        <a href="http://localhost/ch3/src/no23-eval-vs-json.html" target="_blank">eval関数についてはここ</a>
+      </p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var getTriangle = new Function('base', 'height', 'return base * height / 2;');<br />
+        document.write('三角形の面積: ', getTriangle(5, 2));<br />
+      </div>
+    `);
+    var getTriangle = new Function('base', 'height', 'return base * height / 2;');
+    document.write('三角形の面積: ', getTriangle(5, 2));
+
+    document.write(`
+      <h2>Functionコンストラクタ テクニック</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var getTriangle = new Function('base', 'height', 'return base * height / 2;');<br />
+        document.write('三角形の面積: ', getTriangle(5, 2));<br />
+      </div>
+    `);
+    var param = 'base, height';
+    var formula = 'return base * height / 2;';
+    var diamond = new Function(param, formula);
+    document.write('菱形の面積: ', diamond(5, 2));
+
+    document.write(`
+      <h2>関数リテラル</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var getTriangle = function(base, height) {<br />
+          &nbsp;&nbsp;&nbsp;return base * height / 2;<br />
+        }<br />
+        document.write('三角形の面積: ', getTriangle(5, 2));<br />
+      </div>
+    `);
+    var getTriangle = function(base, height) {
+      return base * height / 2;
+    }
+    document.write('三角形の面積: ', getTriangle(5, 2));
+
+    document.write(`
+      <h2>アロー関数</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var getTriangle = (base, height) => {<br />
+          &nbsp;&nbsp;&nbsp;return base * height / 2;<br />
+        }<br />
+        document.write('三角形の面積: ', getTriangle(5, 2));<br />
+      </div>
+    `);
+    var getTriangle = (base, height) => {
+      return base * height / 2;
+    }
+    document.write('三角形の面積: ', getTriangle(5, 2));
+
+    document.write(`
+      <h2>アロー関数 one line</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var getTriangle = (base, height) => base * height / 2;<br />
+        document.write('三角形の面積: ', getTriangle(5, 2));<br />
+      </div>
+    `);
+    var getTriangle = (base, height) => base * height / 2;
+    document.write('三角形の面積: ', getTriangle(5, 2));
+
+    document.write(`
+      <h2>アロー関数 引数一つ</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var getCircle = radius => radius * radius * Math.PI;<br />
+        document.write('円の面積: ', getCircle(5));<br />
+      </div>
+    `);
+    var getCircle = radius => radius * radius * Math.PI;
+    document.write('円の面積: ', getCircle(5));
+
+    document.write(`
+      <h2>アロー関数 引数なし</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var showMessage = () => document.write('hello JavaScript.');<br />
+        showMessage();<br />
+      </div>
+    `);
+    var showMessage = () => document.write('hello JavaScript.');
+    showMessage();
+  </script>
+</body>
+</html>
