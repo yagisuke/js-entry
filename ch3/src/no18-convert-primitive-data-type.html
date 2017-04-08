@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-18 オブジェクトを基本型へ変換.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>オブジェクトを基本型へ変換</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var obj = new Object();<br />
+        var date = new Date();<br />
+        var ary = ['prototype.js', 'jQuery', 'Yahoo! UI'];<br />
+        var num = 10;<br />
+        var reg = /[0-9]{3}-[0-9]{4}/;<br />
+      </div>
+    `);
+    var obj = new Object();
+    var date = new Date();
+    var ary = ['prototype.js', 'jQuery', 'Yahoo! UI'];
+    var num = 10;
+    var reg = /[0-9]{3}-[0-9]{4}/;
+
+    document.write(`
+      <h2>toStringメソッド</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(obj.toString());<br />
+        document.write(date.toString());<br />
+        document.write(ary.toString());<br />
+        document.write(num.toString());<br />
+        document.write(reg.toString());<br />
+      </div>
+    `);
+    document.write(obj.toString(), '<br />');
+    document.write(date.toString(), '<br />');
+    document.write(ary.toString(), '<br />');
+    document.write(num.toString(), '<br />');
+    document.write(reg.toString(), '<br />');
+
+    document.write(`
+      <h2>valueOfメソッド</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        document.write(obj.valueOf());<br />
+        document.write(date.valueOf()); // Dateオブジェクトはタイムスタンプ値になる<br />
+        document.write(ary.valueOf());<br />
+        document.write(num.valueOf());<br />
+        document.write(reg.valueOf());<br />
+      </div>
+    `);
+    document.write(obj.valueOf(), '<br />');
+    document.write(date.valueOf(), '<br />');
+    document.write(ary.valueOf(), '<br />');
+    document.write(num.valueOf(), '<br />');
+    document.write(reg.valueOf(), '<br />');
+  </script>
+</body>
+</html>
