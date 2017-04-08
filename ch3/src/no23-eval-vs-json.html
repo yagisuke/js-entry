@@ -15,7 +15,6 @@
         第三者が任意のスクリプトを自由に実行できてしまう可能性がある<br />
         通常のスクリプトよりも処理速度が遅い
       </p>
-
       <div style="padding: 10px; background-color: #eee; color: green;">
         var str = 'document.write("eval関数")';<br />
         eval(str);<br />
@@ -40,8 +39,8 @@
     document.write(`
       <h2>ブラケット構文の方がシンプルかつ安全</h2>
       <div style="padding: 10px; background-color: #eee; color: green;">
-      var obj = {hoge: 1, foo: 2};<br />
-      document.write(obj[prop]);
+        var obj = {hoge: 1, foo: 2};<br />
+        document.write(obj[prop]);
       </div>
     `);
     var obj = {hoge: 1, foo: 2};
