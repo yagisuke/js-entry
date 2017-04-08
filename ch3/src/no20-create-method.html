@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-20 create mthod.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>create mthod</h1>
+  <script type="text/javascript">
+    // オブジェクトの生成1
+    var obj = {x: 1, y: 2, z: 3};
+
+    // オブジェクトの生成2
+    var obj2 = new Object();
+    obj2.x = 1;
+    obj2.y = 2;
+    obj2.z = 3;
+
+    // オブジェクトの生成3
+    // <Object.prototype>Objectオブジェクトの機能を引き継いだオブジェクトを生成しなさいという意味になる
+    //
+    // <writable: bool, configurable: bool, enumerable: bool>初期値はすべてfalse.
+    // falseの場合、プロパティの変更、for...inによる列挙、プロパティの削除ができない
+    var obj3 = Object.create(Object.prototype, {
+      x: {value: 1, writable: true, configurable: true, enumerable: true},
+      y: {value: 2, writable: true, configurable: true, enumerable: true},
+      z: {value: 3, writable: true, configurable: true, enumerable: true}
+    });
+
+    // 空のように見えても、内部的にはObjectオブジェクトのインスタンス
+    var obj4 = {};
+
+    // Objectオブジェクトすら引き継がない完全にからのオブジェクトを生成
+    var obj5 = Object.create(null);
+  </script>
+</body>
+</html>
