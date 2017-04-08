@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-22 encodeURI.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>encode / decode</h1>
+  <p>
+    encodeURIとencodeURIComponentはエンコード対象が若干異なる。<br />
+    <br />
+    escape関数という似た関数もあるが、<br />
+    プラットフォームやブラウザ、文字コードなどで得られる結果が変わるため、<br />
+    下位互換性を維持したいような特別な理由がない限り使用すべきではない。<br />
+  </p>
+  <script type="text/javascript">
+    document.write(`
+      <h2>encodeURI -> decodeURI</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var str = '!"#$%&()+-*_|;:,.';<br />
+        var encodeURIStr = encodeURI(str);<br />
+        var decodeURIStr = decodeURI(encodeURIStr);<br />
+      </div>
+    `);
+    var str = '!"#$%&()+-*_|;:,.';
+    var encodeURIStr = encodeURI(str);
+    var decodeURIStr = decodeURI(encodeURIStr);
+    document.write('encodeURIStr -> ', encodeURIStr, '<br />');
+    document.write('decodeURIStr -> ', decodeURIStr, '<br />');
+
+    document.write(`
+      <h2>encodeURIComponent -> decodeURIComponent</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var str = '!"#$%&()+-*_|;:,.';<br />
+        var encodeURIComponentStr = encodeURIComponent(str);<br />
+        var decodeURIComponentStr = decodeURIComponent(encodeURIComponentStr);<br />
+      </div>
+    `);
+    var str = '!"#$%&()+-*_|;:,.';
+    var encodeURIComponentStr = encodeURIComponent(str);
+    var decodeURIComponentStr = decodeURIComponent(encodeURIComponentStr);
+    document.write('encodeURIComponentStr -> ', encodeURIComponentStr, '<br />');
+    document.write('decodeURIComponentStr -> ', decodeURIComponentStr, '<br />');
+  </script>
+</body>
+</html>
