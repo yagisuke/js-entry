@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-2 ブロックスコープ.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>ブロックスコープ</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>ES2015以前はブロックスコープが存在しなかった</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        if (true) {<br />
+          &nbsp;&nbsp;&nbsp;var a = 5;<br />
+        }<br />
+        document.write(a);<br />
+      </div>
+    `);
+    if (true) {
+      var a = 5;
+    }
+    document.write(a);
+
+    document.write(`
+      <h2>ES2015以前は即時関数で擬似的に変数名の競合を防ぐ</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        (function() {<br />
+          &nbsp;&nbsp;&nbsp;var i = 5;<br />
+          &nbsp;&nbsp;&nbsp;document.write(i);<br />
+        }).call(this);<br />
+        document.write(i);<br />
+      </div>
+    `);
+    (function() {
+      var i = 5;
+      document.write(i, '<br />');
+    }).call(this);
+    document.write('<span style="color: red;">Uncaught ReferenceError: i is not defined</span>');
+
+    document.write(`
+      <h2>ブロックスコープに対応したlet命令</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        if (true) {<br />
+          &nbsp;&nbsp;&nbsp;let b = 5;<br />
+          &nbsp;&nbsp;&nbsp;document.write(b);<br />
+        }<br />
+        document.write(b);<br />
+      </div>
+    `);
+    if (true) {
+      let b = 5;
+      document.write(b, '<br />');
+    }
+    document.write('<span style="color: red;">Uncaught ReferenceError: b is not defined</span>');
+
+    document.write(`
+      <h2>let命令 テクニック</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        {<br />
+          &nbsp;&nbsp;&nbsp;let c = 5;<br />
+          &nbsp;&nbsp;&nbsp;document.write(c);<br />
+        }<br />
+        document.write(c);<br />
+      </div>
+    `);
+    if (true) {
+      let c = 5;
+      document.write(c, '<br />');
+    }
+    document.write('<span style="color: red;">Uncaught ReferenceError: c is not defined</span>');
+  </script>
+</body>
+</html>
