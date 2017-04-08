@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch3-23 eval vs JSON.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>eval vs JSON</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>eval</h2>
+      <p>
+        与えられた文字列をJSコードとして評価/実行する.<br />
+        しかし、以下の点で乱用は避けるべき.<br>
+        第三者が任意のスクリプトを自由に実行できてしまう可能性がある<br />
+        通常のスクリプトよりも処理速度が遅い
+      </p>
+
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var str = 'document.write("eval関数")';<br />
+        eval(str);<br />
+      </div>
+    `);
+    var str = 'document.write("eval関数")';
+    eval(str);
+    document.write('<br />');
+
+    document.write(`
+      <h2>evalテクニック</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var obj = {hoge: 1, foo: 2};<br />
+        var prop = 'hoge';<br />
+        eval('document.write(obj.' + prop + ')');<br />
+      </div>
+    `);
+    var obj = {hoge: 1, foo: 2};
+    var prop = 'hoge';
+    eval('document.write(obj.' + prop + ')');
+
+    document.write(`
+      <h2>ブラケット構文の方がシンプルかつ安全</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      var obj = {hoge: 1, foo: 2};<br />
+      document.write(obj[prop]);
+      </div>
+    `);
+    var obj = {hoge: 1, foo: 2};
+    document.write(obj[prop]);
+
+    document.write(`
+      <h2>JSON.parse</h2>
+      <p>JSONを使う選択肢も。</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var data = JSON.parse('{"hoge": 1, "foo": 2}');
+        document.write(data.hoge);
+      </div>
+    `);
+    var data = JSON.parse('{"hoge": 1, "foo": 2}');
+    document.write(data.hoge);
+
+    document.write(`
+      <h2>JSON文字列への変換方法</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        var obj = {hoge: 1, foo: 2};<br />
+        document.write(JSON.stringify(obj));<br />
+      </div>
+    `);
+    var obj = {hoge: 1, foo: 2};
+    document.write(JSON.stringify(obj));
+  </script>
+</body>
+</html>
