@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-4 引数の記法.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>引数の記法</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>引数のデフォルト値</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function getTriangle(base = 1, height = 1) {<br />
+          &nbsp;&nbsp;&nbsp;return base * height / 2;<br />
+        }<br />
+        document.write(getTriangle(5));<br />
+      </div>
+    `);
+    function getTriangle(base = 1, height = 1) {
+      return base * height / 2;
+    }
+    document.write(getTriangle(5));
+
+    document.write(`
+      <h2>引数の記法 part2</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function multi(a, b = a) {<br />
+          &nbsp;&nbsp;&nbsp;return a * b;<br />
+        }<br />
+        document.write(multi(5));<br />
+        document.write(multi(10, 5));<br />
+        document.write(multi(5, null));<br />
+        // undefinedは指定されていないとみなされて、デフォルト値が適用される<br />
+        document.write(multi(5, undefined));<br />
+      </div>
+    `);
+    function multi(a, b = a) {
+      return a * b;
+    }
+    document.write(multi(5), '<br />');
+    document.write(multi(10, 5), '<br />');
+    document.write(multi(5, null), '<br />');
+    document.write(multi(5, undefined), '<br />');
+
+    document.write(`
+      <h2>引数を必須化</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function required() {<br />
+          &nbsp;&nbsp;&nbsp;throw new Error('引数が指定されていなません。');<br />
+        }<br />
+        function hoge(value = required()) {<br />
+          &nbsp;&nbsp;&nbsp;return value;<br />
+        }<br />
+        try {<br />
+          &nbsp;&nbsp;&nbsp;hoge();<br />
+        } catch(e) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(\$\{e.message\});<br />
+        }<br />
+      </div>
+    `);
+    function required() {
+      throw new Error('引数が指定されていなません。');
+    }
+    function hoge(value = required()) {
+      return value;
+    }
+    try {
+      hoge();
+    } catch(e) {
+      document.write(`<span style="color: red;">${e.message}</span>`);
+    }
+
+    document.write(`
+      <h2>名前付き引数でコードを見やすく</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function getTriangle({base = 1, height = 1}) {<br />
+          &nbsp;&nbsp;&nbsp;return base * height / 2;<br />
+        }<br />
+        document.write(getTriangle({base: 5, height: 4}));<br />
+      </div>
+    `);
+    function getTriangle({base = 1, height = 1}) {
+      return base * height / 2;
+    }
+    document.write(getTriangle({base: 5, height: 4}));
+
+    document.write(`
+      <h2>名前付き引数でコードを見やすく</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function show({name, address}) {<br />
+          &nbsp;&nbsp;&nbsp;document.write('name -> ', name, ' / address -> ', address);<br />
+        }<br />
+        let member = {<br />
+          &nbsp;&nbsp;&nbsp;mid: 'Y0001',<br />
+          &nbsp;&nbsp;&nbsp;name: '山田太郎',<br />
+          &nbsp;&nbsp;&nbsp;address: 'xyz@gmail.com'<br />
+        };<br />
+        show(member);<br />
+      </div>
+    `);
+    function show({name, address}) {
+      document.write('name -> ', name, ' / address -> ', address);
+    }
+    let member = {
+      mid: 'Y0001',
+      name: '山田太郎',
+      address: 'xyz@gmail.com'
+    };
+    show(member);
+
+    document.write(`
+      <h2>可変長引数の関数を定義</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function sum(...nums) {<br />
+          &nbsp;&nbsp;&nbsp;let result = 0;<br />
+          &nbsp;&nbsp;&nbsp;for (let num of nums) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (typeof num !== 'number') {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error('指定値が数値ではありません: ' + num);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += num;<br />
+          &nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;&nbsp;return result;<br />
+        }<br />
+        <br />
+        try {<br />
+          &nbsp;&nbsp;&nbsp;document.write(sum(1, 2, 6, 7, 10, 11));<br />
+          &nbsp;&nbsp;&nbsp;sum(1, 2, 6, 7, 10, 'moji');<br />
+        } catch(e) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(\`\${e.message}\`);<br />
+        }<br />
+      </div>
+    `);
+    function sum(...nums) {
+      let result = 0;
+      for (let num of nums) {
+        if (typeof num !== 'number') {
+          throw new Error('指定値が数値ではありません: ' + num);
+        }
+        result += num;
+      }
+      return result;
+    }
+    try {
+      document.write(sum(1, 2, 6, 7, 10, 11), '<br />');
+      sum(1, 2, 6, 7, 10, 'moji');
+    } catch(e) {
+      document.write(`<span style="color: red;">${e.message}</span>`);
+    }
+  </script>
+</body>
+</html>
