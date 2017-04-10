@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-1 コンストラクタ.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>コンストラクタ</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+        var Member = function(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.getEnglishName = function() {
+            return this.lastName + ' ' + this.firstName;
+          }
+        }
+        var mem = new Member('やまだ', 'たろう');
+        mem.getJapaneseName = function() {
+          return this.firstName + ' ' + this.lastName;
+        }
+
+        document.write(mem.firstName);
+        document.write(mem.lastName);
+        document.write(mem.getEnglishName());
+        document.write(mem.getJapaneseName());
+      </pre>
+      </div>
+    `);
+    var Member = function(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.getEnglishName = function() {
+        return this.lastName + ' ' + this.firstName;
+      }
+    }
+    var mem = new Member('やまだ', 'たろう');
+    mem.getJapaneseName = function() {
+      return this.firstName + ' ' + this.lastName;
+    }
+    document.write(mem.firstName, '');
+    document.write(mem.lastName, '<br />');
+    document.write(mem.getEnglishName(), '<br />');
+    document.write(mem.getJapaneseName(), '<br />');
+
+    document.write(`
+      <h2>コンストラクタの強制的な呼び出し</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+        var Member1 = function(firstName, lastName) {
+          if (!(this instanceof Member1)) {
+            return new Member1(firstName, lastName);
+          }
+          this.firstName = firstName;
+          this.lastName = lastName;
+        }
+        var mem1 = Member1('やまだ', 'たろう');
+
+        document.write(mem1);
+        document.write(mem1.firstName);
+        document.write(mem1.lastName);
+      </pre>
+      </div>
+    `);
+    var Member1 = function(firstName, lastName) {
+      if (!(this instanceof Member1)) {
+        return new Member1(firstName, lastName);
+      }
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+    var mem1 = Member1('やまだ', 'たろう');
+    document.write(mem1, '<br />');
+    document.write(mem1.firstName, '<br />');
+    document.write(mem1.lastName, '<br />');
+  </script>
+</body>
+</html>
