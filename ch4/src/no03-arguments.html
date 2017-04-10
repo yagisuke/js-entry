@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-3 arguments.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>arguments</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>関数の引数が間違っている時の対応方法</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function showMessage(value) {<br />
+          &nbsp;&nbsp;&nbsp;if (arguments.length !== 1) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error('引数の数が間違っています。');<br />
+          &nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;&nbsp;alert('表示されない');<br />
+        }<br />
+        try {<br />
+          &nbsp;&nbsp;&nbsp;showMessage('message1', 'message2');<br />
+        } catch(e) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(e.message);<br />
+        }<br />
+      </div>
+    `);
+    function showMessage(value) {
+      if (arguments.length !== 1) {
+        throw new Error('引数の数が間違っています。');
+      }
+      alert('表示されない');
+    }
+    try {
+      showMessage('message1', 'message2');
+    } catch(e) {
+      document.write(e.message);
+    }
+
+    document.write(`
+      <h2>関数の引数が間違っていても動作するようなテクニック</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function getTriangle(o_base, o_height) {<br />
+          &nbsp;&nbsp;&nbsp;if (o_base === undefined) { o_base = 1; }<br />
+          &nbsp;&nbsp;&nbsp;if (o_height === undefined) { o_height = 1; }<br />
+          &nbsp;&nbsp;&nbsp;return o_base * o_height / 2;<br />
+        }<br />
+        document.write(getTriangle());<br />
+        document.write(getTriangle(5));<br />
+        document.write(getTriangle(5, 2));<br />
+        document.write(getTriangle(5, 2, 2));<br />
+      </div>
+    `);
+    function getTriangle(o_base, o_height) {
+      if (o_base === undefined) { o_base = 1; }
+      if (o_height === undefined) { o_height = 1; }
+      return o_base * o_height / 2;
+    }
+    document.write(getTriangle(), '<br />');
+    document.write(getTriangle(5), '<br />');
+    document.write(getTriangle(5, 2), '<br />');
+    document.write(getTriangle(5, 2, 2), '<br />');
+
+    document.write(`
+      <h2>可変長引数</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function sum() {<br />
+          var result = 0;<br />
+          for (var i = 0, len = arguments.length; i < len; i++) {<br />
+            &nbsp;&nbsp;&nbsp;var tmp = arguments[i];<br />
+            &nbsp;&nbsp;&nbsp;if (typeof tmp !== 'number') {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error('引数が数値ではなありません。');<br />
+            &nbsp;&nbsp;&nbsp;}<br />
+            &nbsp;&nbsp;&nbsp;result += tmp;<br />
+          &nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;&nbsp;return result;<br />
+        }<br />
+        try {<br />
+          &nbsp;&nbsp;&nbsp;document.write(sum(1, 3, 5, 7, 9));<br />
+          &nbsp;&nbsp;&nbsp;document.write(sum(1, 3, 5, 7, 9, 'error'));<br />
+        } catch(e) {<br />
+          &nbsp;&nbsp;&nbsp;document.write(\`&lt;span style="color: red;"&gt;\${e.message}&lt;/span&gt;\`);<br />
+        }<br />
+      </div>
+    `);
+    function sum() {
+      var result = 0;
+      for (var i = 0, len = arguments.length; i < len; i++) {
+        var tmp = arguments[i];
+        if (typeof tmp !== 'number') {
+          throw new Error('引数が数値ではなありません。');
+        }
+        result += tmp;
+      }
+      return result;
+    }
+    try {
+      document.write(sum(1, 3, 5, 7, 9), '<br />');
+      document.write(sum(1, 3, 5, 7, 9, 'error'), '<br />');
+    } catch(e) {
+      document.write(`<span style="color: red;">${e.message}</span>`);
+    }
+
+    document.write(`
+      <h2>明示的に宣言された引数と可変長引数を混在</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function printf(format) {<br />
+          &nbsp;&nbsp;&nbsp;for (var i = 0, len = arguments.length; i < len; i++) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var pattern = new RegExp('\\{' + (i - 1) + '\\}', 'g');<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format = format.replace(pattern, arguments[i]);<br />
+          &nbsp;&nbsp;&nbsp;}<br />
+          &nbsp;&nbsp;&nbsp;document.write(format);<br />
+        }<br />
+        printf('こんにちわ、{0}さん。私は{1}です。', '掛谷', '山田');<br />
+      </div>
+    `);
+    function printf(format) {
+      for (var i = 0, len = arguments.length; i < len; i++) {
+        var pattern = new RegExp('\\{' + (i - 1) + '\\}', 'g');
+        format = format.replace(pattern, arguments[i]);
+      }
+      document.write(format);
+    }
+    printf('こんにちわ、{0}さん。私は{1}です。', '掛谷', '山田');
+  </script>
+</body>
+</html>
