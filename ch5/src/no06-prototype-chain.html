@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-5 prototypeチェーンのインスタンス切り替え.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>prototypeチェーンのインスタンス切り替え</h1>
+  <script type="text/javascript">
+    document.write(`
+      <p>
+        JSのプロトタイプチェーンは<br />
+        <b>インスタンスが生成された時点で固定され、その後の変更にかかわらず保存される</b>
+      </p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var Animal = function() {};
+      Animal.prototype = {
+        walk: function() {
+          document.write('トコトコ...');
+        }
+      };
+
+      var SuperAnimal = function() {};
+      SuperAnimal.prototype = {
+        walk: function() {
+          document.write('ダダダダ...');
+        }
+      };
+
+      var Dog = function() {};
+      Dog.prototype = new Animal();
+      var d1 = new Dog();
+      d1.walk();
+
+      Dog.prototype = new SuperAnimal();
+      var d2 = new Dog();
+      d2.walk();
+
+      d1.walk();
+      </pre>
+      </div>
+    `);
+
+    var Animal = function() {};
+    Animal.prototype = {
+      walk: function() {
+        document.write('トコトコ...', '<br />');
+      }
+    };
+
+    var SuperAnimal = function() {};
+    SuperAnimal.prototype = {
+      walk: function() {
+        document.write('ダダダダ...', '<br />');
+      }
+    };
+
+    var Dog = function() {};
+    Dog.prototype = new Animal();
+    var d1 = new Dog();
+    d1.walk();
+
+    Dog.prototype = new SuperAnimal();
+    var d2 = new Dog();
+    d2.walk();
+
+    d1.walk();
+  </script>
+</body>
+</html>
