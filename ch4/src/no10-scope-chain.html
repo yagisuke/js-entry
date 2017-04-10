@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-10 スコープチェーン.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>スコープチェーン</h1>
+  <script type="text/javascript">
+    var y = 'Grobal';
+    function outerFunc() {
+      var y = 'Local Outer';
+
+      function innerFunc() {
+        var z = 'Local Inner';
+        console.log(z); // Local Inner
+        console.log(y); // Local Outer
+        console.log(x); // Uncaught ReferenceError: x is not defined
+      }
+      innerFunc();
+    }
+    outerFunc();
+  </script>
+</body>
+</html>
