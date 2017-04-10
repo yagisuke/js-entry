@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-4 prototype定義.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>prototype定義</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>修正前の書き方</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var Member = function(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      };
+
+      Member.prototype.getName = function() {
+        return this.lastName + ' ' + this.fristName;
+      }
+
+      Member.prototype.toString = function() {
+        return this.lastName + this.fristName;
+      }
+      </pre>
+      </div>
+    `);
+
+    document.write(`
+      <h2>修正後の書き方</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var Member = function(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      };
+
+      Member.prototype = {
+        getName: function() {
+          return this.lastName + ' ' + this.fristName;
+        },
+        toString: function() {
+          return this.lastName + this.firstName;
+        }
+      };
+      </pre>
+      </div>
+    `);
+    var Member = function(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    };
+
+    Member.prototype = {
+      getName: function() {
+        return this.lastName + ' ' + this.fristName;
+      },
+      toString: function() {
+        return this.lastName + this.firstName;
+      }
+    };
+  </script>
+</body>
+</html>
