@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-6 複数の返却値.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>複数の返却値</h1>
+  <script type="text/javascript">
+    document.write('<br />', `<b>ar getMaxMin = (...nums) => [Math.max(...nums), Math.min(...nums)];</b>`, '<br />');
+    var getMaxMin = (...nums) => [Math.max(...nums), Math.min(...nums)];
+
+    document.write('<br />', `<b>let result = getMaxMin(10, 35, -5, 78, 0);</b>`, '<br />');
+    let result = getMaxMin(10, 35, -5, 78, 0);
+    document.write('result -> ', result, '<br />');
+
+    document.write('<br />', `<b>let [max1, min1] = getMaxMin(10, 35, -5, 78, 0);</b>`, '<br />');
+    let [max1, min1] = getMaxMin(10, 35, -5, 78, 0);
+    document.write('max1 -> ', max1, '<br />');
+    document.write('min1 -> ', min1, '<br />');
+
+    document.write('<br />', `<b>let [, min2] = getMaxMin(10, 35, -5, 78, 0);</b>`, '<br />');
+    let [, min2] = getMaxMin(10, 35, -5, 78, 0);
+    document.write('min2 -> ', min2, '<br />');
+  </script>
+</body>
+</html>
