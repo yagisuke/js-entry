@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-5 prototypeチェーン.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>prototypeチェーン</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var Animal = function() {};
+      Animal.prototype = {
+        walk: function() {
+          document.write('トコトコ...');
+        }
+      }
+
+      var Dog = function() {
+        // thisでAnimalコンストラクタを呼び出せるようにする
+        Animal.call(this);
+      }
+      Dog.prototype = new Animal();
+      Dog.prototype.bark = function() {
+        document.write('ワンワン...');
+      }
+
+      var d = new Dog();
+      d.walk();
+      d.bark();
+      </pre>
+      </div>
+    `);
+
+    var Animal = function() {};
+    Animal.prototype = {
+      walk: function() {
+        document.write('トコトコ...');
+      }
+    }
+
+    var Dog = function() {
+      // thisでAnimalコンストラクタを呼び出せるようにする
+      Animal.call(this);
+    }
+    Dog.prototype = new Animal();
+    Dog.prototype.bark = function() {
+      document.write('ワンワン...');
+    }
+
+    var d = new Dog();
+    d.walk();
+    d.bark();
+
+    for (var key in d) {
+      if (d.hasOwnProperty(key)) {
+        document.write(key);
+      }
+    }
+  </script>
+</body>
+</html>
