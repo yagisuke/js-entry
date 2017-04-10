@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-7 オブジェクトの型の確認.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>オブジェクトの型の確認</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var Animal = function() {};
+      var Hamster = function() {};
+      Hamster.prototype = new Animal();
+
+      var animal = new Animal();
+      var hamster = new Hamster();
+      </pre>
+      </div>
+    `);
+    var Animal = function() {};
+    var Hamster = function() {};
+    Hamster.prototype = new Animal();
+
+    var animal = new Animal();
+    var hamster = new Hamster();
+
+    document.write(`
+      <h2>コンストラクタプロパティ</h2>
+      <p>オブジェクトの元となったコンストラクタ(関数オブジェクト)を取得</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      document.write(animal.constructor === Animal);
+      document.write(hamster.constructor === Animal);
+      document.write(hamster.constructor === Hamster);
+      </pre>
+      </div>
+    `);
+    document.write(animal.constructor === Animal, '<br />');
+    document.write(hamster.constructor === Animal, '<br />');
+    document.write(hamster.constructor === Hamster, '<br />');
+
+    document.write(`
+      <h2>instanceof演算子</h2>
+      <p>オブジェクト特定のコンストラクタによって生成されたインスタンスであるかを判定</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      document.write(hamster instanceof Animal);
+      document.write(hamster instanceof Hamster);
+      </pre>
+      </div>
+    `);
+    document.write(hamster instanceof Animal, '<br />');
+    document.write(hamster instanceof Hamster, '<br />');
+
+    document.write(`
+      <h2>isPrototypeOfメソッド</h2>
+      <p>オブジェクトが参照しているプロトタイプの確認</p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      document.write(Hamster.prototype.isPrototypeOf(hamster));
+      document.write(Animal.prototype.isPrototypeOf(hamster));
+      </pre>
+      </div>
+    `);
+    document.write(Hamster.prototype.isPrototypeOf(hamster), '<br />');
+    document.write(Animal.prototype.isPrototypeOf(hamster), '<br />');
+
+    document.write(`
+      <h2>in演算子</h2>
+      <p>
+        メンバーの有無を判定する。<br />
+        javascriptは同じクラスを元にしたインスタンスが必ずしも同じメンバーを持つとは限らない。
+      </p>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var obj = {hoge: function() {}, foo: function() {}};
+      document.write('hoge' in obj);
+      document.write('foo' in obj);
+      </pre>
+      </div>
+    `);
+    var obj = {hoge: function() {}, foo: function() {}};
+    document.write('hoge' in obj, '<br />');
+    document.write('foo' in obj, '<br />');
+  </script>
+</body>
+</html>
