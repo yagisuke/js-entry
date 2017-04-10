@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-2 call / applyメソッド.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>call / applyメソッド</h1>
+  <script type="text/javascript">
+    document.write(`
+      <h2>call/applyメソッドは引数で指定されたオブジェクトをthisとして扱う</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+        var data = 'Global data';
+        var obj1 = {data: 'obj1 data'};
+        var obj2 = {data: 'obj2 data'};
+        function hoge() {
+          document.write(this.data);
+        }
+        hoge.call();
+        hoge.call(null);
+        hoge.call(obj1);
+        hoge.call(obj2);
+      </pre>
+      </div>
+    `);
+    var data = 'Global data';
+    var obj1 = {data: 'obj1 data'};
+    var obj2 = {data: 'obj2 data'};
+    function hoge() {
+      document.write(this.data, '<br />');
+    }
+    hoge.call();
+    hoge.apply(null);
+    hoge.call(obj1);
+    hoge.apply(obj2);
+
+    document.write(`
+      <h2>配列ライクなオブジェクトを配列に変換</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      function hoge2() {
+        // var args = Array.from(arguments); 代替案
+        var args = Array.prototype.slice.call(arguments);
+        document.write(args.join('/'));
+      }
+      hoge2('angular', 'react', 'backbone');
+      </pre>
+      </div>
+    `);
+    function hoge2() {
+      // var args = Array.from(arguments); 代替案
+      var args = Array.prototype.slice.call(arguments);
+      document.write(args.join('/'));
+    }
+    hoge2('angular', 'react', 'backbone');
+  </script>
+</body>
+</html>
