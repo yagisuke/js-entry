@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-5 ...演算子.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>...演算子</h1>
+  <script type="text/javascript">
+    document.write('Math.max(15, 10, 8, 4, 2) -> ', Math.max(15, 10, 8, 4, 2), '<br />');
+
+    document.write( '<br />', '<b>NaNになってしまう</b>', '<br />');
+    document.write('Math.max([15, 10, 8, 4, 2]) -> ', Math.max([15, 10, 8, 4, 2]), '<br />');
+
+    document.write( '<br />', '<b>ES2015以前の対応</b>', '<br />');
+    document.write('Math.max.apply(null, [15, 10, 8, 4, 2]) -> ', Math.max.apply(null, [15, 10, 8, 4, 2]), '<br />');
+
+    document.write( '<br />', '<b>ES2015からの対応</b>', '<br />');
+    document.write('Math.max(...[15, 10, 8, 4, 2]) -> ', Math.max(...[15, 10, 8, 4, 2]), '<br />');
+  </script>
+</body>
+</html>
