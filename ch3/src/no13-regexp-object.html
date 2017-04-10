@@ -50,14 +50,14 @@
     document.write(`
       <h2>mオプション</h2>
       <div style="padding: 10px; background-color: #eee; color: green;">
-        var str = '101匹ワンちゃん。 \n7人の小人';<br />
-
+        var str = '101匹ワンちゃん。 \\n7人の小人';<br />
+        <br />
         var p1 = /^[0-9]{1,}/g;<br />
         var result1 = str.match(p1);<br />
         for (var i = 0, len = result1.length; i < len; i++) {<br />
           &nbsp;&nbsp;&nbsp;document.write(result1[i]);<br />
-        }
-
+        }<br />
+        <br />
         var p2 = /^[0-9]{1,}/gm;<br />
         var result2 = str.match(p2);<br />
         for (var i = 0, len = result2.length; i < len; i++) {<br />
