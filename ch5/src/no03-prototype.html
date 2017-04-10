@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-3 prototype.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>prototype</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var Member = function(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+
+      Member.prototype.getName = function() {
+        return this.lastName + ' ' + this.firstName;
+      };
+
+      var mem = new Member('やまだ', 'たろう');
+      document.write(mem.getName());
+      </pre>
+      </div>
+    `);
+    var Member = function(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+
+    Member.prototype.getName = function() {
+      return this.lastName + ' ' + this.firstName;
+    };
+
+    var mem = new Member('やまだ', 'たろう');
+    document.write(mem.getName());
+
+    document.write(`
+      <h2>プロパティの追加/削除</h2>
+      <div style="padding: 10px; background-color: #eee; color: green;">
+      <pre style="margin: 0; padding: 0;">
+      var Member3 = function() {};
+      Member3.prototype.sex = '男';
+
+      var mem2 = new Member3();
+      var mem3 = new Member3();
+
+      document.write(mem2.sex + '|' + mem3.sex);
+
+      mem2.sex = '女';
+      document.write(mem2.sex + '|' + mem3.sex);
+
+      delete mem2.sex;
+      delete mem3.sex;
+      document.write(mem2.sex + '|' + mem3.sex);
+      </pre>
+      </div>
+    `);
+    var Member3 = function() {};
+    Member3.prototype.sex = '男';
+
+    var mem2 = new Member3();
+    var mem3 = new Member3();
+
+    document.write(mem2.sex + '|' + mem3.sex, '<br />');
+
+    mem2.sex = '女';
+    document.write(mem2.sex + '|' + mem3.sex, '<br />');
+
+    delete mem2.sex;
+    delete mem3.sex;
+    document.write(mem2.sex + '|' + mem3.sex, '<br />');
+  </script>
+</body>
+</html>
