@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-7 再帰関数.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>再帰関数</h1>
+  <script type="text/javascript">
+    function factorial(n) {
+      if (typeof n !== 'number') throw new Error('numberでありません。');
+
+      if (n != 0) return n * factorial(n - 1);
+      return 1;
+    }
+    document.write(factorial(5));
+  </script>
+</body>
+</html>
