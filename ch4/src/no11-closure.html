@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-11 クロージャ.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>クロージャ</h1>
+  <script type="text/javascript">
+    document.write(`
+      <div style="padding: 10px; background-color: #eee; color: green;">
+        function closure(init) {<br />
+          &nbsp;&nbsp;&nbsp;var counter = init;<br />
+          <br />
+          &nbsp;&nbsp;&nbsp;return function() {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return ++counter;<br />
+          &nbsp;&nbsp;&nbsp;}<br />
+        }<br />
+      </div>
+    `);
+    function closure(init) {
+      var counter = init;
+
+      return function() {
+        return ++counter;
+      }
+    }
+
+    var myClosure1 = closure(3);
+    var myClosure2 = closure(333);
+    document.write('myClosure1 -> ', myClosure1(), '<br />');
+    document.write('myClosure2 -> ', myClosure2(), '<br />');
+    document.write('myClosure1 -> ', myClosure1(), '<br />');
+    document.write('myClosure2 -> ', myClosure2(), '<br />');
+    document.write('myClosure1 -> ', myClosure1(), '<br />');
+    document.write('myClosure2 -> ', myClosure2(), '<br />');
+  </script>
+</body>
+</html>
