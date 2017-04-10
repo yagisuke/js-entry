@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch4-8 高階関数.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>高階関数</h1>
+  <script type="text/javascript">
+    function arrayWalk(data, func) {
+      for (var key in data) {
+        func(data[key], key);
+      }
+    }
+    function showElement(value, key) {
+      document.write(key + ': ' + value, '<br />');
+    }
+    var result = 0;
+    function sumElement(value, key) {
+      result += value;
+    }
+
+    var ary = [1, 2, 4, 8, 16];
+    arrayWalk(ary, showElement);
+    arrayWalk(ary, sumElement);
+    document.write('合計値: ', result, '<br />');
+    arrayWalk(
+      ary,
+      // (value, key) => document.write(key, ': ', value)
+      function(value, key) {
+        document.write(key, ': ', value);
+      }
+    );
+  </script>
+</body>
+</html>
