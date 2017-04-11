@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-18 computed property names.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>computed property names</h1>
+  <script type="text/javascript">
+  let i = 0;
+  let member = {
+    name: 'やまだ たろう',
+    birth: new Date(1970, 5, 25),
+    ['memo' + ++i]: '正社員',
+    ['memo' + ++i]: '支部会長',
+    ['memo' + ++i]: '関東',
+  };
+
+  console.log(member);
+  </script>
+</body>
+</html>
