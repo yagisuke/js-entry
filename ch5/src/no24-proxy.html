@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-24 Proxy.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Proxy</h1>
+  <script type="text/javascript">
+    let data = {red: '赤色', yellow: '黄色'};
+    var proxy = new Proxy(data, {
+      get(target, prop) {
+        return prop in target ? target[prop] : '?';
+      }
+    });
+
+    document.write(proxy.red, '<br />');
+    document.write(proxy.nothing, '<br />');
+  </script>
+</body>
+</html>
