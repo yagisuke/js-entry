@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-13 class.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>名class</h1>
+  <script type="text/javascript">
+  class Member {
+    constructor(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+
+    getName() {
+      return this.firstName + this.lastName;
+    }
+  }
+
+  let m = new Member('やまだ', 'たろう');
+  document.write(m.getName());
+  </script>
+</body>
+</html>
