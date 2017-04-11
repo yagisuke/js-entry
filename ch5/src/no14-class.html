@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-14 class.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>class</h1>
+  <script type="text/javascript">
+  class Member {
+    constructor(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+
+    get firstName() {
+      return this._firstName;
+    }
+
+    set firstName(value) {
+      this._firstName = value;
+    }
+
+    get lastName() {
+      return this._lastName;
+    }
+
+    set lastName(value) {
+      this._lastName = value;
+    }
+
+    getName() {
+      return this.firstName + this.lastName;
+    }
+  }
+
+  let m = new Member('やまだ', 'たろう');
+  m.firstName = 'さとう';
+  document.write(m.lastName, '<br />');
+  document.write(m.getName(), '<br />');
+  </script>
+</body>
+</html>
