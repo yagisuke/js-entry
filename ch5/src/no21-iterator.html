@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-21 iterator.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>iterator</h1>
+  <script type="text/javascript">
+    document.write(`<h2>array</h2>`);
+    let data_ary = ['one', 'two', 'three'];
+    for (let d of data_ary) {
+      document.write(d, '<br />');
+    }
+
+    document.write(`<h2>string</h2>`);
+    let data_str = 'あいうえお';
+    for (let d of data_str) {
+      document.write(d, '<br />');
+    }
+
+    document.write(`<h2>Map</h2>`);
+    let data_map = new Map([['MON', '月曜'], ['TUE', '火曜'], ['WED', '水曜']]);
+    for (let [key, value] of data_map) {
+      document.write(`${key}: ${value}<br />`);
+    }
+
+    document.write(`<h2>[Symbol.iterator]メソッド</h2>`);
+    let data_ary2 = ['one', 'two', 'three'];
+    let itr = data_ary2[Symbol.iterator]();
+    let d;
+    while (d = itr.next()) {
+      if (d.done) { break; }
+      document.write(d.done, ' / ', d.value, '<br />');
+    }
+  </script>
+</body>
+</html>
