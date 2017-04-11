@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-1 get element.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1></h1>
+  現在時刻: <span id="result"></span>
+  <form>
+    <label for="time">時刻:</label>
+    <input id="time" name="time" type="text" size="10" />
+  </form>
+  <ul>
+    <li><a href="https://github.com/yagisuke" target="_blank">GitHub</a></li>
+    <li><a href="https://twitter.com/yagi_suke" target="_blank" class="sns">Twitter</a></li>
+    <li><a href="https://www.facebook.com/yusuke.yagishita.1" target="_blank" class="sns">Facebook</a></li>
+  </ul>
+  <script type="text/javascript">
+    // タグ名指定
+    var tagName = document.getElementsByTagName('h1');
+    tagName[0].textContent = 'get element';
+
+    // id指定
+    var current = new Date();
+    var result = document.getElementById('result');
+    result.textContent = current.toLocaleString();
+
+    // name指定
+    var inputName = document.getElementsByName('time');
+    inputName[0].value = current.toLocaleTimeString();
+
+    // class指定
+    var classList = document.getElementsByClassName('sns');
+    for (var i = 0, len = classList.length; i < len; i++) {
+      classList[i].textContent = classList.item(i).href;
+    }
+  </script>
+</body>
+</html>
