@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-2 query selector.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>query selector</h1>
+  <ul id="list">
+    <li><a href="https://github.com/yagisuke" target="_blank">GitHub</a></li>
+    <li><a href="https://twitter.com/yagi_suke" target="_blank" class="sns">Twitter</a></li>
+    <li><a href="https://www.facebook.com/yusuke.yagishita.1" target="_blank" class="sns">Facebook</a></li>
+    <li><a href="https://www.instagram.com/_yagisuke/" target="_blank" class="sns">Instagram</a></li>
+    <li><a href="http://yagisuke.hatenadiary.com/" target="_blank" class="blog">yagisukeのWebなブログ</a></li>
+    <li><a href="http://mt-yagi-suke.hatenablog.com/" target="_blank" class="blog">yagisukeのお山なブログ</a></li>
+  </ul>
+  <script type="text/javascript">
+    var list = document.querySelectorAll('#list .sns');
+    for (var i = 0, len = list.length; i < len; i++) {
+      list[i].textContent = list.item(i).href;
+    }
+  </script>
+</body>
+</html>
