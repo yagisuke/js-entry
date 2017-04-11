@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-10 Object.definePropertiesメソッド.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Object.definePropertiesメソッド</h1>
+  <script type="text/javascript">
+  function Triangle() {
+    var _base;
+    var _height;
+
+    Object.defineProperties(this, {
+      base: {
+        get: function() {
+          return _base;
+        },
+        set: function(base) {
+          if (typeof base === 'number' && base > 0) {
+            _base = base;
+          }
+        }
+      },
+      height: {
+        get: function() {
+          return _height;
+        },
+        set: function(height) {
+          if (typeof height === 'number' && height > 0) {
+            _height = height;
+          }
+        }
+      }
+    });
+  };
+
+  Triangle.prototype.getArea = function() {
+    return this.base * this.height / 2;
+  }
+
+  var t = new Triangle();
+  t.base = 10;
+  t.height = 2;
+  document.write('三角形の底辺: ', t.base, '<br />'); // 三角形の底辺: 10
+  document.write('三角形の高さ: ', t.height, '<br />'); // 三角形の高さ: 2
+  document.write('三角形の面積: ', t.getArea(), '<br />'); // 三角形の面積: 10
+  </script>
+</body>
+</html>
