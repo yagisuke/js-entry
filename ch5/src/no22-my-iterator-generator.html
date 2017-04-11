@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-22 自作iterator/generator.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>自作iterator/generator</h1>
+  <script type="text/javascript">
+    document.write(`<h2>iterator</h2>`);
+    class MyIterator {
+      constructor(data) {
+        this.data = data;
+      }
+
+      [Symbol.iterator]() {
+        let current = 0;
+        let that = this;
+        return {
+          next() {
+            return current < that.data.length
+              ? {value: that.data[current++], done: false}
+              : {done: true};
+          }
+        };
+      }
+    }
+
+    let itr = new MyIterator(['one', 'two', 'three']);
+    for (let value of itr) {
+      document.write(value, '<br />');
+    }
+
+    document.write(`<h2>generator</h2>`);
+    function* myGenerator() {
+      yield 'あいうえお';
+      yield 'かきくけこ';
+      yield 'さしすせそ';
+    }
+
+    for (let t of myGenerator()) {
+      document.write(t, '<br />');
+    }
+  </script>
+</body>
+</html>
