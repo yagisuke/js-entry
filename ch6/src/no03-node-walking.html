@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-2 query selector.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>query selector</h1>
+  <form>
+    <label for="food">一番好きな麺類は？: </label>
+    <select id="food">
+      <option value="ラーメン">ラーメン</option>
+      <option value="スパゲッティ">スパゲッティ</option>
+      <option value="そば">そば</option>
+      <option value="うどん">うどん</option>
+    </select>
+    <input type="submit" value="送信" />
+  </form>
+  <span id="result"></span>
+  <script type="text/javascript">
+    var s = document.getElementById('food');
+    var opts = s.childNodes;
+
+    var result = document.getElementById('result');
+
+    for (var i = 0, len = opts.length; i < len; i++) {
+      var opt = opts.item(i);
+      // 子ノードが要素ノードである場合のみ
+      if (opt.nodeType === 1) {
+        result.textContent += opt.value + ' / ';
+      }
+    }
+  </script>
+</body>
+</html>
