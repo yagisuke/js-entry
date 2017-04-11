@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-15 継承.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>継承</h1>
+  <script type="text/javascript">
+  class Member {
+    constructor(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+
+    getName() {
+      return this.firstName + this.lastName;
+    }
+  }
+
+  class BusinessMember extends Member {
+    work() {
+      return this.getName() + 'は働いています。';
+    }
+  }
+
+  let bm = new BusinessMember('やまだ', 'たろう');
+  document.write(bm.getName(), '<br />');
+  document.write(bm.work(), '<br />');
+  </script>
+</body>
+</html>
