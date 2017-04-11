@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-16 super keyword.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>継承</h1>
+  <script type="text/javascript">
+  class Member {
+    constructor(firstName, lastName) {
+      Object.assign(this, {firstName, lastName});
+      //   this.firstName = firstName;
+      //   this.lastName = lastName;
+    }
+
+    getName() {
+      return this.firstName + this.lastName;
+    }
+  }
+
+  class BusinessMember extends Member {
+    constructor(firstName, lastName, clazz) {
+      super(firstName, lastName);
+      this.clazz = clazz;
+    }
+
+    getName() {
+      return super.getName() + '/役職: ' + this.clazz;
+    }
+  }
+
+  let bm = new BusinessMember('やまだ', 'たろう', '元会長');
+  document.write(bm.getName());
+  </script>
+</body>
+</html>
