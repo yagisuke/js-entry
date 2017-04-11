@@ -7,9 +7,6 @@
 <body>
   <h1>プライベートメンバを定義</h1>
   <script type="text/javascript">
-    document.write(`
-      <h2></h2>
-    `);
     function Triangle() {
       var _base;
       var _height;
@@ -34,13 +31,13 @@
     var t = new Triangle();
     t._base = 10;
     t._height = 2;
-    document.write('三角形の面積: ', t.getArea(), '<br />');
+    document.write('三角形の面積: ', t.getArea(), '<br />'); // 三角形の面積: NaN
 
     t.setBase(10);
     t.setHeight(2);
-    document.write('三角形の底辺: ', t.getBase(), '<br />');
-    document.write('三角形の高さ: ', t.getHeight(), '<br />');
-    document.write('三角形の面積: ', t.getArea(), '<br />');
+    document.write('三角形の底辺: ', t.getBase(), '<br />'); // 三角形の底辺: 10
+    document.write('三角形の高さ: ', t.getHeight(), '<br />'); // 三角形の高さ: 2
+    document.write('三角形の面積: ', t.getArea(), '<br />'); // 三角形の面積: 10
   </script>
 </body>
 </html>
