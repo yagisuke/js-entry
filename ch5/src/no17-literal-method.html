@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch5-17 literal method.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>literal method</h1>
+  <script type="text/javascript">
+  let member = {
+    name: 'tanaka miho',
+    birth: new Date(1983, 01, 12),
+    toString() {
+      return this.name + '/誕生日: ' + this.birth.toLocaleDateString();
+    }
+  }
+
+  document.write(member.toString());
+  </script>
+</body>
+</html>
