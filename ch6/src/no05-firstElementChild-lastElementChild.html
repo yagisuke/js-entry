@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-5 query selector.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>query selector</h1>
+  <form>
+    <label for="food">一番好きな麺類は？: </label>
+    <select id="food">
+      <option value="ラーメン">ラーメン</option>
+      <option value="スパゲッティ">スパゲッティ</option>
+      <option value="そば">そば</option>
+      <option value="うどん">うどん</option>
+    </select>
+    <input type="submit" value="送信" />
+  </form>
+  <script type="text/javascript">
+    document.write(`<h2>firstElementChild</h2>`);
+    var s = document.getElementById('food');
+    var child = s.firstElementChild;
+    while (child) {
+      document.write(child.value, ' / ');
+      child = child.nextElementSibling;
+    }
+
+    document.write(`<h2>lastElementChild</h2>`);
+    var s = document.getElementById('food');
+    var child = s.lastElementChild;
+    while (child) {
+      document.write(child.value, ' / ');
+      child = child.previousElementSibling;
+    }
+  </script>
+</body>
+</html>
