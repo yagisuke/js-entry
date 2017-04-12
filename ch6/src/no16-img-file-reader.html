@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-16 img file reader.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>img file reader</h1>
+  <form>
+    <label for="file">ファイル</label>
+    <input id="file" type="file" />
+  </form>
+  <img src="https://placehold.jp/150x150.png" id="result"></pre>
+  <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('file').addEventListener('change', function(e) {
+        var input = document.getElementById('file').files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener('load', function(e) {
+          document.getElementById('result').src = reader.result;
+        }, true);
+
+        reader.readAsDataURL(input);
+      }, true);
+    });
+  </script>
+</body>
+</html>
