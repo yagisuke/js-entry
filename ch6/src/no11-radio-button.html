@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-11 radio button.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>radio button</h1>
+  <form>
+    <div>
+      好きな食べ物は？:
+      <label><input type="radio" name="food" value="ラーメン" />ラーメン</label>
+      <label><input type="radio" name="food" value="餃子" />餃子</label>
+      <label><input type="radio" name="food" value="プリン" />プリン</label>
+      <input type="submit" value="送信" id="btn" />
+    </div>
+  </form>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var getRadioValue = function(name) {
+        var result = '';
+        var elems = document.getElementsByName(name);
+
+        for (var i = 0, len = elems.length; i < len; i++) {
+          var elem = elems.item(i);
+          if (elem.checked) {
+            result = elem.value;
+            break;
+          }
+        }
+        return result;
+      };
+
+      document.getElementById('btn').addEventListener('click', function() {
+        window.alert(getRadioValue('food'));
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
