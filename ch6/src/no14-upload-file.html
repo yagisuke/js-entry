@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-14 upload file.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>upload file</h1>
+  <form>
+    <label for="file">ファイル: </label>
+    <input id="file" name="file" type="file" multiple />
+  </form>
+  <pre id="result"></pre>
+  <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('file').addEventListener('change', function(e) {
+        var inputs = document.getElementById('file').files;
+
+        for (var i = 0, len = inputs.length; i < len; i++) {
+          var input = inputs[i];
+          document.getElementById('result').textContent += 'ファイル名: ' + input.name + '\n\r';
+          document.getElementById('result').textContent += '種類: ' + input.type + '\n\r';
+          document.getElementById('result').textContent += 'サイズ: ' + input.size / 1024 + 'KB' + '\n\r';
+          document.getElementById('result').textContent += '最終更新日: ' + input.lastModifiedDate + '\n\r';
+        }
+      }, true);
+    });
+  </script>
+</body>
+</html>
