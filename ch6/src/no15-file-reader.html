@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-16 file-reader.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>file-reader</h1>
+  <form>
+    <label for="file">ファイル</label>
+    <input id="file" type="file" />
+  </form>
+  <pre id="result"></pre>
+  <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('file').addEventListener('change', function(e) {
+        var input = document.getElementById('file').files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener('error', function() {
+          document.getElementById('result').textContent = reader.error.message;
+        }, true);
+
+        reader.addEventListener('load', function() {
+          document.getElementById('result').textContent = reader.result;
+        }, true);
+
+        reader.readAsText(input, 'UTF-8');
+        // reader.abort();
+      }, true);
+    });
+  </script>
+</body>
+</html>
