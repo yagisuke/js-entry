@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-4 firstChild / lastChild.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>firstChild / lastChild</h1>
+  <form>
+    <label for="food">一番好きな麺類は？: </label>
+    <select id="food">
+      <option value="ラーメン">ラーメン</option>
+      <option value="スパゲッティ">スパゲッティ</option>
+      <option value="そば">そば</option>
+      <option value="うどん">うどん</option>
+    </select>
+    <input type="submit" value="送信" />
+  </form>
+  <script type="text/javascript">
+    document.write(`<h2>first child</h2>`)
+    var s = document.getElementById('food');
+    var child = s.firstChild;
+    while (child) {
+      if (child.nodeType === 1) {
+        document.write(child.value, ' / ');
+      }
+      child = child.nextSibling;
+    }
+
+    document.write(`<h2>last child</h2>`)
+    var s = document.getElementById('food');
+    var child = s.lastChild;
+    while (child) {
+      if (child.nodeType === 1) {
+        document.write(child.value, ' / ');
+      }
+      child = child.previousSibling;
+    }
+  </script>
+</body>
+</html>
