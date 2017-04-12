@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-6 event handler.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>event handler</h1>
+  <input type="button" value="button" onclick="func_click();" />
+  <input type="button" value="ボタン" onclick="window.alert('ボタンが押されました');" />
+  <input type="button" value="ぼたん" id="button" />
+  <script type="text/javascript">
+    function func_click() {
+      window.alert('buttonが押されました');
+    }
+
+    window.onload = function() {
+      document.getElementById('button').onclick = function() {
+        window.alert('ぼたんが押されました');
+      };
+    }
+  </script>
+</body>
+</html>
