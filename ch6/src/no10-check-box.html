@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-10 check box.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>check box</h1>
+  <form>
+    <div>
+      好きな食べ物は？:
+      <label><input type="checkbox" name="food" value="ラーメン" />ラーメン</label>
+      <label><input type="checkbox" name="food" value="餃子" />餃子</label>
+      <label><input type="checkbox" name="food" value="プリン" />プリン</label>
+      <input type="submit" value="送信" id="btn" />
+    </div>
+  </form>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btn').addEventListener('click', function() {
+        var result = [];
+        var foods = document.getElementsByName('food');
+
+        for (var i = 0, len = foods.length; i < len; i++) {
+          var food = foods.item(i);
+          if (food.checked) {
+            result.push(food.value);
+          }
+        }
+
+        window.alert(result.join(' / ').toString());
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
