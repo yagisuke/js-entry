@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-12 set checkbox.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>set checkbox</h1>
+  <form>
+    <div>
+      好きな食べ物は？:
+      <label><input type="checkbox" name="food" value="ラーメン" />ラーメン</label>
+      <label><input type="checkbox" name="food" value="餃子" />餃子</label>
+      <label><input type="checkbox" name="food" value="プリン" />プリン</label>
+      <input type="submit" value="送信" id="btn" />
+    </div>
+  </form>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      function setCheckValue(name, value) {
+        var elems = document.getElementsByName(name);
+
+        for (var i = 0, len = elems.length; i < len; i++) {
+          var elem = elems.item(i);
+          if (value.indexOf(elem.value) > -1) {
+            elem.checked = true;
+          }
+        }
+      };
+
+      setCheckValue('food', ['餃子', 'プリン']);
+    }, false);
+  </script>
+</body>
+</html>
