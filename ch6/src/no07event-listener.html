@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-7 event listener.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>event listener</h1>
+  <input type="button" value="button" id="btn" />
+  <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('btn').addEventListener('click', function() {
+      window.alert('btnがクリックされました。');
+    }, false)
+  }, false);
+  </script>
+</body>
+</html>
