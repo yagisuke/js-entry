@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-13 set option.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>set option</h1>
+  <form>
+    <div>
+      <label for="food">好きな食べ物は？:</label>
+      <select id="food" multiple>
+        <option type="checkbox" name="food" value="ラーメン">ラーメン</option>
+        <option type="checkbox" name="food" value="餃子">餃子</option>
+        <option type="checkbox" name="food" value="プリン">プリン</option>
+      </select>
+      <input type="submit" value="送信" id="btn" />
+    </div>
+  </form>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var setListValue = function(name, value) {
+        var opts = document.getElementById(name);
+
+        for (var i = 0, len = opts.length; i < len; i++) {
+          var opt = opts.item(i);
+          if (value.indexOf(opt.value) > -1) {
+            opt.selected = true;
+          }
+        }
+      };
+
+      setListValue('food', ['餃子', 'プリン']);
+    }, false);
+  </script>
+</body>
+</html>
