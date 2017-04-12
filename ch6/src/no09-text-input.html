@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-9 text input.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>text input</h1>
+  <form>
+    <label name="name">名前:</label>
+    <input id="name" name="name" type="text" size="30" />
+    <input id="btn" type="button" value="送信" />
+  </form>
+  <div id="result"></div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btn').addEventListener('click', function() {
+        var name = document.getElementById('name');
+        var result = document.getElementById('result');
+
+        result.textContent = 'こんにちわ、' + name.value + 'さん';
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
