@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-22 add style class.</title>
+  <meta charset="utf-8">
+  <style>
+    .highlight { background-color: Yellow; }
+    .highlight-text { color: Green; }
+  </style>
+</head>
+<body>
+  <h1>add style class</h1>
+  <div id="element">マウスポインターを乗せると色が変わります。</div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var element = document.getElementById('element');
+
+      element.addEventListener('mouseover', function() {
+        this.className = 'highlight highlight-text';
+      }, false);
+
+      element.addEventListener('mouseout', function() {
+        this.className = '';
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
