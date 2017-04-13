@@ -25,20 +25,21 @@
       document.getElementById('btn').addEventListener('click', function() {
         var name = document.getElementById('name');
         var url = document.getElementById('url');
-
-        var text = document.createTextNode(name.value);
-        anchor.appendChild(text);
-
-        var anchor = document.createElement('a');
-        anchor.href = url.value;
-
-        var br = document.createElement('br');
         var list = document.getElementById('list');
 
-        list.appendChild(anchor);
-        list.appendChild(br);
+        var anchor = document.createElement('a');
+        anchor.appendChild(text);
+        anchor.href = url.value;
+        anchor.target = '_blank';
+        var text = document.createTextNode(name.value);
+        var br = document.createElement('br');
+
+        // list.appendChild(anchor);
+        // list.appendChild(br);
+        list.insertBefore(br, list.firstChild);
+        list.insertBefore(anchor, br);
       }, false);
-    }, false)
+    }, false);
   </script>
 </body>
 </html>
