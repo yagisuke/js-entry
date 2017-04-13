@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-20 HTML collection.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>HTML collection</h1>
+  <ul id="first">
+    <li>独習PHP</li>
+    <li>デザインサンプルで学ぶCSSによる実践スタイリング入門</li>
+    <li>基礎からしっかり学ぶC++の教科書</li>
+    <li>TECHNICAL MASTER はじめてのAndroidアプリ開発 第2版 Android Studio 2対応</li>
+  </ul>
+  <ul id="second">
+    <li>［改訂新版］Javaポケットリファレンス</li>
+    <li>Swiftポケットリファレンス</li>
+    <li>Amazon Web Servicesではじめる新米プログラマのためのクラウド超入門</li>
+    <li>アプリを作ろう！　Visual C++入門　Visual C++ 2015対応</li>
+  </ul>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var first_ul = document.getElementById('first');
+      var first_li = first_ul.getElementsByTagName('li');
+
+      console.log('変更前: ' + first_li.length);
+      first_ul.appendChild(document.createElement('li'));
+      console.log('変更後: ' + first_li.length);
+
+    }, false);
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var second_ul = document.getElementById('second');
+      var second_li = second.getElementsByTagName('li');
+
+      for (var i = 0, len = second_li.length; i < len; i++) {
+        var item = second_li.item(i);
+        var new_li = document.createElement('li');
+        var new_text = document.createTextNode('<new>' + item.textContent);
+        new_li.appendChild(new_text);
+        second_ul.appendChild(new_li);
+      }
+    }, false);
+  </script>
+</body>
+</html>
