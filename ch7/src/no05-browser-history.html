@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch7-5 browser history.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>browser history</h1>
+  <input id="btn" type="button" value="カウントアップ" />
+  <span id="result">0</span>回クリックされました。
+  <a href="JavaScript:history.back();">戻る</a>
+</body>
+<script type="text/javascript">
+  var count = 0;
+  var result = document.getElementById('result');
+
+  document.getElementById('btn').addEventListener('click', function() {
+    result.textContent = ++count;
+    history.pushState(count, null, '/js/chap07/count/' + count);
+  });
+
+  window.addEventListener('popstate', function(e) {
+    count = e.state;
+    result.textContent = count;
+  });
+</script>
+</html>
