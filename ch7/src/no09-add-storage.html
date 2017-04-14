@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch7-9 local storage / session storage.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>local storage / session storage</h1>
+</body>
+<script type="text/javascript">
+  var storage = localStorage;
+  var apple = {name: 'りんご', price: 150, made: '青森'};
+  storage.setItem('apple', JSON.stringify(apple));
+  var data = JSON.parse(storage.getItem('apple'));
+  console.log(data.name);
+</script>
+</html>
