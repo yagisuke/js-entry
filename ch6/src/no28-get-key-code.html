@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-28 get key code.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>get key code</h1>
+  <label for="key">キー入力: </label>
+  <input type="text" id="key" size="10" />
+  <ul id="log"></ul>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var textfield = document.getElementById('key');
+
+      textfield.addEventListener('keydown', function(e) {
+        var keycode = e.keyCode;
+        var new_li = document.createElement('li');
+        var new_text = document.createTextNode('keycode: ' + keycode);
+
+        new_li.appendChild(new_text);
+        document.getElementById('log').appendChild(new_li);
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
