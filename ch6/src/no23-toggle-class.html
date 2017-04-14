@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-23 toggle class.</title>
+  <meta charset="utf-8">
+  <style>
+    .highlight { background-color: Yellow; }
+    .line { border: 1px solid Red; }
+  </style>
+</head>
+<body>
+  <h1>toggle class</h1>
+  <div id="element">&lt;single&gt;クリックすると色が変わります。</div>
+  <div id="multi_element" class="line">&lt;multi&gt;クリックすると色が変わります。</div>
+  <div id="toggle_element" class="line">&lt;toggle&gt;クリックすると色が変わります。</div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      // 一つのクラスの場合
+      var element = document.getElementById('element');
+
+      element.addEventListener('click', function() {
+        this.className = (this.className === 'highlight' ? '' : 'highlight');
+      }, false);
+
+      // 複数クラスの場合
+      var multi_element = document.getElementById('multi_element');
+
+      multi_element.addEventListener('click', function() {
+        var classes = this.className.split(' ');
+        var index = classes.indexOf('highlight');
+
+        if (index === -1) {
+          classes.push('highlight');
+        } else {
+          classes.splice(index, 1);
+        }
+
+        this.className = classes.join(' ');
+      }, false);
+
+      // toggleの場合
+      var toggle_element = document.getElementById('toggle_element');
+
+      toggle_element.addEventListener('click', function() {
+        this.classList.toggle('highlight');
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
