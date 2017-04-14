@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-25 delete event listener.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>delete event listener</h1>
+  <form>
+    <input id="btn" type="button" value="ダイアログ表示" />
+  </form>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('btn');
+      var listener = function() {
+        window.alert('こんにちわ、世界');
+      };
+
+      btn.addEventListener('clilck', listener, false);
+      btn.removeEventListener('click', listener, false);
+    }, false);
+  </script>
+</body>
+</html>
