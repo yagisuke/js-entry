@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-26 event object.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>event object</h1>
+  <form>
+    <input id="btn" type="button" value="ダイアログ表示" />
+  </form>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btn').addEventListener('click', function(e) {
+        console.log('発生元: ' + this.nodeName + '/' + this.id);
+        console.log('種類: ' + e.type);
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
