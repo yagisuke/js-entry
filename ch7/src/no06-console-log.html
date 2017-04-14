@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch7-6 console logテクニック.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>console logテクニック</h1>
+</body>
+<script type="text/javascript">
+  // コンソールフォーマット
+  console.log('はじめまして、私は%sです。%dです。', '山田太郎', 30);
+  console.log('今日の気温は、%.2f度です。', 22.5);
+
+  // コンソールグループ
+  console.group('上位グループ');
+    for (var i = 0; i < 3; i++) {
+      console.group('下位グループ' + i);
+        for (var j = 0; j < 3; j++) {
+          console.log(i, j);
+        }
+      console.groupEnd();
+    }
+  console.groupEnd();
+
+  // ログのトレース
+  function call1() { call2(); }
+  function call2() { call3(); }
+  function call3() { console.trace(); }
+  call1();
+
+  // カウント
+  for (var i = 0; i < 3; i++) {
+    for (var j = 0; j < 4; j++) {
+      console.count('LOOP');
+    }
+  }
+
+  // タイマー
+  console.time('MyTimer');
+  console.log('確認してください');
+  console.timeEnd('MyTimer');
+
+  // assert
+  function circle(radius) {
+    console.assert(typeof radius === 'number' && radius > 0, '引数radiusは正数でなければなりません');
+    return radius * radius * Math.PI;
+  }
+  console.log(circle(-5));
+
+  // オブジェクトを見やすい形で出力
+  console.dir(window);
+
+</script>
+</html>
