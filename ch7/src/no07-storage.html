@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch7-7 local storage / session storage.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>local storage / session storage</h1>
+</body>
+<script type="text/javascript">
+  // local storage
+  var storage = localStorage;
+  storage.setItem('fruit1', 'りんご');
+  storage.fruit2 = 'みかん';
+  storage['fruit3'] = 'ぶどう';
+
+  console.log(storage.getItem('fruit1'));
+  console.log(storage.fruit2);
+  console.log(storage['fruit3']);
+
+  // session storage
+  var session_storage = sessionStorage;
+  session_storage.setItem('fruit1', 'りんご');
+  session_storage.fruit2 = 'みかん';
+  session_storage['fruit3'] = 'ぶどう';
+
+  console.log(session_storage.getItem('fruit1'));
+  console.log(session_storage.fruit2);
+  console.log(session_storage['fruit3']);
+</script>
+</html>
