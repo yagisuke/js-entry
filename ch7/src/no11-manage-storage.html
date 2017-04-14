@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch7-11 local storage / session storage.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>local storage / session storage</h1>
+  <p>別タブでlocal storageを変更してコンソールログを確認してください</p>
+</body>
+<script type="text/javascript">
+  window.addEventListener('storage', function(e) {
+    console.log('変更されたキー: ' + e.key);
+    console.log('変更前の値: ' + e.oldValue);
+    console.log('変更後の値: ' + e.newValue);
+    console.log('発生元ページ: ' + e.url);
+  }, false);
+</script>
+</html>
