@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch7-2 set interval.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>set interval</h1>
+  <input id="btn" type="button" value="停止" />
+  <div id="result"></div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var timer = window.setInterval(
+        function() {
+          var dat = new Date();
+          document.getElementById('result').textContent = dat.toLocaleTimeString();
+        }, 500);
+
+      document.getElementById('btn').addEventListener('click', function() {
+        window.clearInterval(timer);
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
