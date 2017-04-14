@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-29 event bubbling.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>event bubbling</h1>
+  <div id="outer">
+    <p>outer要素</p>
+    <a href="http://localhost/ch6/src/no29-event-bubbling.html" id="inner">
+      inner要素
+    </a>
+  </div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('inner').addEventListener('click', function(e) {
+        window.alert('#innerリスナーが発生しました。');
+      }, false);
+
+      document.getElementById('inner').addEventListener('click', function(e) {
+        window.alert('#innerリスナーが2が発生しました。');
+      }, false);
+
+      document.getElementById('outer').addEventListener('click', function(e) {
+        window.alert('#outerリスナーが発生しました。');
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
