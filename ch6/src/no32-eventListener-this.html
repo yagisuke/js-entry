@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-32 eventListener thisキーワード.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>eventListener thisキーワード</h1>
+  <input type="button" value="送信" id="btn" />
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var Counter = function(elem) {
+        this.count = 0,
+        this.elem  = elem;
+
+        elem.addEventListener('click', () => {
+          this.count++;
+          this.show();
+        }, false);
+      };
+
+      Counter.prototype.show = function() {
+        console.log(this.elem.id + 'は、' + this.count + '回クリックされました。');
+      }
+
+      var c = new Counter(document.getElementById('btn'));
+    }, false);
+  </script>
+</body>
+</html>
