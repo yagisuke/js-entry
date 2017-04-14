@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch7-1 confirm dialog.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>confirm dialog</h1>
+  <form id="fm">
+    <input type="submit" value="送信" />
+  </form>
+  <div id="result"></div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('fm').addEventListener('submit', function(e) {
+        if (!window.confirm('ページを送信してもいいですか？')) {
+          e.preventDefault();
+        }
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
