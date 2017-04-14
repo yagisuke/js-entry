@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>ch6-24 delete event handler.</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>delete event handler</h1>
+  <form>
+    <input id="btn" type="button" value="ダイアログ表示" />
+  </form>
+  <script type="text/javascript">
+    window.onload = function() {
+      var btn = document.getElementById('btn');
+
+      btn.onclick = function() {
+        window.alert('こんにちわ');
+      }
+
+      // クリックイベントの破棄
+      btn.onclick = null;
+    }
+  </script>
+</body>
+</html>
