@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ch7-17 postMessage(動作未確認).</title>
+</head>
+<body>
+  <h1>postMessage(動作未確認)</h1>
+  <form>
+    <input type="text" size="80" id="message" />
+    <input type="button" value="送信" id="btn" />
+  </form>
+  <iframe src="http://www.wings.msn.to/" width="500" height="500" id="frame"></iframe>
+  <div id="result"></div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var target = 'http://www.wings.msn.to';
+
+      document.getElementById('btn').addEventListener('click', function() {
+        document.getElementById('frame').contentWindow.postMessage(
+          document.getElementById('message').value, target
+        );
+      }, false);
+
+      window.addEventListener('message', function(e) {
+        var origin = 'http://localhost';
+
+        if (e.origin !== origin) {
+          return;
+        }
+        document.getElementById('result').textContent = e.data;
+
+        var current = new Date();
+        e.source.postMessage(current, origin);
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
