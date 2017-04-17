@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ch7-22 web worker.</title>
+</head>
+<body>
+  <h1>web worker</h1>
+  <form>
+    <input type="number" value="100" id="target" />
+    以下: <input type="number" value="7" id="x" />
+    の倍数の個数 = <span id="result">ー</span>
+    <input type="button" value="計算" id="btn" />
+  </form>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btn').addEventListener('click', function() {
+        var worker = new Worker('js/src/no22worker.js');
+
+        document.getElementById('result').textContent = '計算中...';
+
+        worker.postMessage({
+          'target': document.getElementById('target').value,
+          'x': document.getElementById('x').value
+        });
+
+        worker.addEventListener('message', function(e) {
+          document.getElementById('result').textContent = e.data;
+        }, false);
+
+        worker.addEventListener('error', function(e) {
+          document.getElementById('result').textContent = e.message;
+        }, false);
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
