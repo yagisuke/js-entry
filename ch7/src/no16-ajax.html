@@ -13,6 +13,13 @@
   </form>
   <div id="result"></div>
   <script type="text/javascript">
+    document.getElementById('btn').addEventListener('click', function() {
+      var url = 'http://b.hatena.ne.jp/entry/jsonlite/?url=' + encodeURIComponent(document.getElementById('url').value) + '&callback=show';
+      var scr = document.createElement('script');
+      scr.src = url;
+      document.getElementsByTagName('body').item(0).appendChild(scr);
+    }, false);
+
     function show(data) {
       if (data === null) {
         result.textContent = 'ブックマークは存在しません。';
@@ -24,7 +31,7 @@
           var li = document.createElement('li');
           var anchor = document.createElement('a');
           anchor.href = 'http://b.hatena.ne.jp/' + bms[i].user;
-          var text = document.createTextNode(bms[i] + ' @author: ' + bms[i].user);
+          var text = document.createTextNode(bms[i] + ' @' + bms[i].user);
 
           anchor.appendChild(text);
           li.appendChild(anchor);
@@ -33,16 +40,6 @@
         result.appendChild(ul);
       }
     }
-  </script>
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function(){
-      document.getElementById('btn').addEventListener('click', function() {
-        var url = 'http://b.hatena.ne.jp/entry/jsonlite/?url=' + encodeURIComponent(document.getElementById('url').value) + '&callback=show';
-        var scr = document.createElement('script');
-        scr.src = url;
-        document.getElementsByTagName('body').item(0).appendChild(scr);
-      }, false);
-    }, false);
   </script>
 </body>
 </html>
